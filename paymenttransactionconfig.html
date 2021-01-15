@@ -292,12 +292,6 @@ input:checked + .slider:after
           console.log( "My passphrase: " + passphrase )
   }
   
-  document.getElementById("nextButtonToTransaction").addEventListener("click",generateWallets)
-  function generateWallets() {
-          if (needToMakeNewDestinationWallet == true) {
-            window.location.replace("https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontoemail.html");
-          }
-  }
   
   //////////////////////////
   ///            Modal
@@ -308,15 +302,22 @@ var modal = document.getElementById("myModal");
 // Get the button that opens the modal
 var btn = document.getElementById("nextButton");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
-  if (needToMakeNewOriginWallet == false) {
-  } else {
-    modal.style.display = "block";
-  }
+            if (needToMakeNewOriginWallet == true && needToMakeNewDestinationWallet == true) {
+            makeNewDestinationWallet();
+            makeNewOriginWallet();
+            modal.style.display = "block";
+          } else if (needToMakeNewOriginWallet == false && needToMakeNewDestinationWallet == true) {
+            makeNewDestinationWallet();
+            window.location.replace("https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontoemail.html");
+          } else if (needToMakeNewOriginWallet == true && needToMakeNewDestinationWallet == false) {
+            makeNewOriginWallet();
+            modal.style.display = "block";
+          } else {
+            console.log('nice! no wallets to generate');
+            window.location.replace("https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontoemail.html");
+          }
 }
 
 </script>
