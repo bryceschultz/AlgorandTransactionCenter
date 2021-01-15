@@ -210,8 +210,8 @@ input:checked + .slider:after
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <p>Please store your wallet details in a safe space. You will need both the wallet ID and the passphrase each time you would like to make a transaction</p>
-    <p class="smalltext green" >We have added 100 microalgos to your betanet account that you can use.</p>
+    <p>Please store your wallet details in a safe space. You will need both the wallet ID and the passphrase each time you would like to make a transaction.</p>
+    <p class="mediumtext green" >We have added 100 microalgos to your betanet account that you can use.</p>
     <br>
     <br>
     <h4>Wallet ID:</h4>
@@ -247,7 +247,7 @@ input:checked + .slider:after
       console.log(needToMakeNewDestinationWallet);
     } else {
       needToMakeNewDestinationWallet = true
-      document.getElementById("explanationDestinationWallet").innerHTML = "No problem we'll setup a new account for the transaction receiver";
+      document.getElementById("explanationDestinationWallet").innerHTML = "No problem we'll setup a new account for the transaction receiver and send it to their email";
       console.log(needToMakeNewDestinationWallet);
     }
   }
