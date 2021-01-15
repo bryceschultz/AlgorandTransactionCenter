@@ -156,11 +156,6 @@ input:checked + .slider:after
   width: 80%;
   overflow-y: auto;
 } 
-  
- .modal-dialog{
-      overflow-y: initial !important
-}
-
 
 .close:hover,
 .close:focus {
@@ -207,7 +202,6 @@ input:checked + .slider:after
 <div id="myModal" class="modal">
 
   <!-- Modal content -->
-  <div class="modal-dialog" style="overflow-y: scroll; max-height:55%;  margin-top: 50px; margin-bottom:50px;" >
   <div class="modal-content">
     <p>Next you need to:</p>
     <p>1. Write down your wallet ID and passphrase as you will need these for each transaction you want to make</p>
@@ -227,7 +221,6 @@ input:checked + .slider:after
     <button id="nextButtonToTransaction" class="button" width="60" height="100">next</button>
     </a>
   </div>
-</div>
 </div>
 <script>
   const baseServer = 'https://testnet-algorand.api.purestake.io/ps2'
