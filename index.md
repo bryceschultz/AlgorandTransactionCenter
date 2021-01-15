@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     meta http-equiv="X-UA-Compatible" content="ie=edge">
-  </head>
-<style>
+    <style>
 body, html {
   height: 100%;
   margin: 0;
@@ -46,6 +45,8 @@ hr {
   width: 40%;
 }
 </style>
+  </head>
+
 <body>
 <a href="index.html">
 <div class="bgimg">
