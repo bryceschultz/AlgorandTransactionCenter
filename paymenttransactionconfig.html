@@ -262,12 +262,38 @@ input:checked + .slider:after
     }
   }
   
-  document.getElementById("nextButton").addEventListener("click",makeNewOriginWallet)
+   document.getElementById("nextButton").addEventListener("click",generateWallets)
+  function makeNewOriginWallet() {
+          if (needToMakeNewOriginWallet == true && needToMakeNewDestinationWallet == true) {
+            makeNewDestinationWallet();
+            makeNewOriginWallet();
+          } else if (needToMakeNewOriginWallet == false && needToMakeNewDestinationWallet == true) {
+            makeNewDestinationWallet();
+          } else if (needToMakeNewOriginWallet == true && needToMakeNewDestinationWallet == false) {
+            makeNewOriginWallet();
+          } else {
+            console.log('nice! no wallets to generate';
+          }
+          var account = algosdk.generateAccount();
+          var passphrase = algosdk.secretKeyToMnemonic(account.sk);
+          document.getElementById("walletId").innerHTML = account.addr;
+          document.getElementById("passphrase").innerHTML = passphrase;
+          console.log( "My address: " + account.addr );
+          console.log( "My passphrase: " + passphrase )
+  }
+  
   function makeNewOriginWallet() {
           var account = algosdk.generateAccount();
           var passphrase = algosdk.secretKeyToMnemonic(account.sk);
           document.getElementById("walletId").innerHTML = account.addr;
           document.getElementById("passphrase").innerHTML = passphrase;
+          console.log( "My address: " + account.addr );
+          console.log( "My passphrase: " + passphrase )
+  }
+  
+    function makeNewDestinationWallet() {
+          var account = algosdk.generateAccount();
+          var passphrase = algosdk.secretKeyToMnemonic(account.sk);
           console.log( "My address: " + account.addr );
           console.log( "My passphrase: " + passphrase )
   }
