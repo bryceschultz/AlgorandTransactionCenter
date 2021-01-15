@@ -272,14 +272,8 @@ input:checked + .slider:after
           } else if (needToMakeNewOriginWallet == true && needToMakeNewDestinationWallet == false) {
             makeNewOriginWallet();
           } else {
-            console.log('nice! no wallets to generate';
+            console.log('nice! no wallets to generate');
           }
-          var account = algosdk.generateAccount();
-          var passphrase = algosdk.secretKeyToMnemonic(account.sk);
-          document.getElementById("walletId").innerHTML = account.addr;
-          document.getElementById("passphrase").innerHTML = passphrase;
-          console.log( "My address: " + account.addr );
-          console.log( "My passphrase: " + passphrase )
   }
   
   function makeNewOriginWallet() {
