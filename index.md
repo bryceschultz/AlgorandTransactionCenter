@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <style>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<style>
 body, html {
   height: 100%;
   margin: 0;
