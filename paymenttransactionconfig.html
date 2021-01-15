@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="algosdk.min.js"></script>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.smalltext{
+  font-size: 12px;
+}
+
+.green{
+  font-size: 12px;
+  color:green;
+}
+
+.red{
+  color:red;
+}
+
+.bgimg {
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+hr {
+  margin: auto;
+  width: 40%;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 90px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ca2222;
+  -webkit-transition: .4s;
+  transition: .4s;
+   border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2ab934;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(55px);
+}
+
+/*------ ADDED CSS ---------*/
+.slider:after
+{
+ content:'No';
+ color: white;
+ display: block;
+ position: absolute;
+ transform: translate(-50%,-50%);
+ top: 50%;
+ left: 50%;
+ font-size: 10px;
+ font-family: "Courier New", Courier, monospace;
+}
+
+input:checked + .slider:after
+{  
+  content:'Yes';
+}
+.button {
+  width: 100%;
+}
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*--------- END --------*/
+</style>
+</head>
+<body>
+<div class="bgimg">
+  <div class="middle">
+    
+<p>I have my own wallet I'd like to use</p>
+<label class="switch">
+  <input id="originwalletbutton" type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+<p class="smalltext red" id="explanationOriginWallet"></p>
+
+
+<br><br><br>
+
+
+<p>I'm sending the transaction to an existing wallet</p>
+<label class="switch">
+  <input id="destinationwalletbutton" type="checkbox" checked>
+  <span class="slider round"></span>
+</label>
+<p class="smalltext red" id="explanationDestinationWallet"></p>
+
+<br><br><br>
+
+
+<button id="nextButton" class="button" width="60" height="100">next</button>
+
+
+ </div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Please store your wallet details in a safe space. You will need both the wallet ID and the passphrase each time you would like to make a transaction</p>
+    <p class="smalltext green" >We have added 100 microalgos to your betanet account that you can use</p>
+    <br>
+    <br>
+    <h4>Wallet ID:</h4>
+    <p style="overflow:scroll;" id="walletId"></p>
+    <br>
+    <br>
+    <h4>Passphrase:</h4>
+    <p style="word-wrap:break-word; display:inline-block;" id="passphrase"></p>
+  </div>
+ 
+</div>
+</div>
+<script>
+  const baseServer = 'https://testnet-algorand.api.purestake.io/ps2'
+  const port = '';
+  const token = {
+      'X-API-Key': 'cfoNpaCzsF9xJRTOO39rF78aJRbK4fqj4W8LNv6k'
+  }
+  
+  const algodClient = new algosdk.Algodv2(token, baseServer, port);
+  let needToMakeNewDestinationWallet = false;
+  let needToMakeNewOriginWallet = false;
+  
+  
+    //////////////////////////
+  ///            Letting the below function know how many wallets it needs to make
+  //////////////////////////
+  document.getElementById("destinationwalletbutton").addEventListener("click", updateDestinationWallet)
+  function updateDestinationWallet() {
+    if (needToMakeNewDestinationWallet == true) {
+      needToMakeNewDestinationWallet = false;
+      document.getElementById("explanationDestinationWallet").innerHTML = "";
+      console.log(needToMakeNewDestinationWallet);
+    } else {
+      needToMakeNewDestinationWallet = true
+      document.getElementById("explanationDestinationWallet").innerHTML = "No problem we'll setup a new account for the transaction receiver";
+      console.log(needToMakeNewDestinationWallet);
+    }
+  }
+  
+  document.getElementById("originwalletbutton").addEventListener("click", updateOriginWallet)
+  function updateOriginWallet() {
+    if (needToMakeNewOriginWallet == true) {
+      needToMakeNewOriginWallet = false;
+      document.getElementById("explanationOriginWallet").innerHTML = "";
+      console.log(needToMakeNewOriginWallet);
+    } else {
+      needToMakeNewOriginWallet = true
+      document.getElementById("explanationOriginWallet").innerHTML = "No problem we'll setup a new account for you";
+      console.log(needToMakeNewOriginWallet);
+    }
+  }
+  
+  document.getElementById("nextButton").addEventListener("click",makeNewOriginWallet)
+  function makeNewOriginWallet() {
+          var account = algosdk.generateAccount();
+          var passphrase = algosdk.secretKeyToMnemonic(account.sk);
+          document.getElementById("walletId").innerHTML = account.addr;
+          document.getElementById("passphrase").innerHTML = passphrase;
+          console.log( "My address: " + account.addr );
+          console.log( "My passphrase: " + passphrase )
+  }
+  
+  
+  //////////////////////////
+  ///            Modal
+  //////////////////////////
+  // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("nextButton");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+</body>
+</html> 
