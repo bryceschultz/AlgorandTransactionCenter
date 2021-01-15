@@ -152,6 +152,7 @@ input:checked + .slider:after
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
+  height: 80vh;
   width: 80%;
   overflow-y: auto;
 } 
@@ -206,8 +207,8 @@ input:checked + .slider:after
 <div id="myModal" class="modal">
 
   <!-- Modal content -->
+  <div class="modal-dialog" style="overflow-y: scroll; max-height:55%;  margin-top: 50px; margin-bottom:50px;" >
   <div class="modal-content">
-    <div class="modal-dialog" style="overflow-y: scroll; max-height:55%;  margin-top: 50px; margin-bottom:50px;" >
     <p>Please store your wallet details in a safe space. You will need both the wallet ID and the passphrase each time you would like to make a transaction.</p>
     <p class="mediumtext green" >We have added 100 microalgos to your betanet account that you can use.</p>
     <br>
