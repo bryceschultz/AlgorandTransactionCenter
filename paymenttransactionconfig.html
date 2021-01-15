@@ -214,9 +214,9 @@ input:checked + .slider:after
     <p style="word-wrap:break-word; display:inline-block;" id="passphrase"></p>
     <br>
     <br>
-    <a href="paymenttransaction.html">
-    <button class="button" width="60" height="100">next</button>
-    </a>
+    
+    <button id="nextButtonToTransaction" class="button" width="60" height="100">next</button>
+    
   </div>
  
 </div>
@@ -292,6 +292,14 @@ input:checked + .slider:after
           console.log( "My passphrase: " + passphrase )
   }
   
+  document.getElementById("nextButtonToTransaction").addEventListener("click",generateWallets)
+  function generateWallets() {
+          if (needToMakeNewDestinationWallet == true) {
+            window.location.replace("https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontoemail.html");
+          } else {
+            window.location.replace("https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontowallet.html");
+          }
+  }
   
   //////////////////////////
   ///            Modal
