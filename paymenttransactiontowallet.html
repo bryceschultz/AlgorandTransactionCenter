@@ -92,7 +92,7 @@ hr {
         console.log( "My passphrase: " + passphrase )
   }
 
-async function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
+(async function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
     let account = algosdk.mnemonicToSecretKey(mnemonic1);
     account.addr = originWalletAddress;
     let params = await client.getTransactionParams().do();
@@ -113,7 +113,7 @@ async function sendTransaction(originWalletAddress, originWalletPassphrase, dest
     console.log("Transaction: " + sendTx.txId);
 })().catch( e => {
     console.log(e)
-}
+})
 
 // Get the submit button
 var btn = document.getElementById("submitTransaction");
