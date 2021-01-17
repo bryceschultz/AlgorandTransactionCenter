@@ -93,7 +93,7 @@ hr {
   }
 
 (async function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
-    let account = algosdk.mnemonicToSecretKey(mnemonic1);
+    let account = algosdk.mnemonicToSecretKey(originWalletPassphrase);
     account.addr = originWalletAddress;
     let params = await client.getTransactionParams().do();
     let txn = {
