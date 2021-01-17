@@ -67,6 +67,12 @@ hr {
     <input id="destinationWalletAddress" type="text">
     <p>Destination email address</p>
     <br>
+    <hr>
+    <br>
+    <h2>Amount</h2>
+    <input id="transactionAmount" type="text">
+    <p>How Many MicroAlgos Would You Like to Send</p>
+    <br>
     <a href="payexistingwallet.html">
     <button id="submitTransaction" class="button" width="60" height="100">submit transaction</button>
     </a>
@@ -90,13 +96,15 @@ hr {
  
 var mnemomonic1 = document.getElementById("nextButton")  
 let account1 = algosdk.mnemonicToSecretKey(mnemonic1);
-function sendTransaction(destinationAddress, amt) {
+function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
+    let account = algosdk.mnemonicToSecretKey(mnemonic1);
+    account.addr = originWalletAddress;
     let params = await client.getTransactionParams().do();
     let txn = {
         "from": account1.addr,
-        "to": destinationAddress,
+        "to": destinationWalletAddress,
         "fee": 1,
-        "amount": amt,
+        "amount": transactionAmount,
         "firstRound": params.firstRound,
         "lastRound": params.lastRound,
         "genesisID": params.genesisID,
@@ -109,6 +117,18 @@ function sendTransaction(destinationAddress, amt) {
     console.log("Transaction: " + sendTx.txId);
 })().catch( e => {
     console.log(e)
+}
+
+// Get the submit button
+var btn = document.getElementById("submitTransaction");
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  var originWalletAddress = document.getElementById("originWalletAddress");
+  var originWalletPassphrase = document.getElementById("originWalletPassphrase");
+  var destinationWalletAddress = document.getElementById("destinationWalletAddress");
+  var destinationWalletAddress = document.getElementById("transactionAmount");
+  sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount);
 }
   
 </script>
