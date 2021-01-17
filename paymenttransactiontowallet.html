@@ -91,9 +91,7 @@ hr {
         console.log( "My address: " + account.addr );
         console.log( "My passphrase: " + passphrase )
   }
- 
-var mnemomonic1 = document.getElementById("nextButton")  
-let account1 = algosdk.mnemonicToSecretKey(mnemonic1);
+
 async function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
     let account = algosdk.mnemonicToSecretKey(mnemonic1);
     account.addr = originWalletAddress;
