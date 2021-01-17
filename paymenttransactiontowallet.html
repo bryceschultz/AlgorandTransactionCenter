@@ -55,24 +55,62 @@ hr {
 <div class="bgimg">
   <div class="middle">
     <h2>From</h2>
-    <input type="text">
+    <input id="originWalletAddress" type="text">
     <p>Your wallet address</p>
     <br>
-    <input type="text">
+    <input id="originWalletPassphrase" type="text">
     <p>Your wallet passphrase</p>
     <br>
     <hr>
     <br>
     <h2>To</h2>
-    <input type="text">
-    <p>Destination wallet address</p>
+    <input id="destinationWalletAddress" type="text">
+    <p>Destination email address</p>
     <br>
     <a href="payexistingwallet.html">
-    <button class="button" width="60" height="100">submit transaction</button>
+    <button id="submitTransaction" class="button" width="60" height="100">submit transaction</button>
     </a>
   </div>
 </div>
+  
+<script>
+  const baseServer = 'https://testnet-algorand.api.purestake.io/ps2'
+  const port = '';
+  const token = {
+      'X-API-Key': 'cfoNpaCzsF9xJRTOO39rF78aJRbK4fqj4W8LNv6k'
+  }
+  
+  const algodClient = new algosdk.Algodv2(token, baseServer, port);
+  function makeNewDestinationWallet() {
+        var account = algosdk.generateAccount();
+        var passphrase = algosdk.secretKeyToMnemonic(account.sk);
+        console.log( "My address: " + account.addr );
+        console.log( "My passphrase: " + passphrase )
+  }
+ 
+var mnemomonic1 = document.getElementById("nextButton")  
+let account1 = algosdk.mnemonicToSecretKey(mnemonic1);
+function sendTransaction(destinationAddress, amt) {
+    let params = await client.getTransactionParams().do();
+    let txn = {
+        "from": account1.addr,
+        "to": destinationAddress,
+        "fee": 1,
+        "amount": amt,
+        "firstRound": params.firstRound,
+        "lastRound": params.lastRound,
+        "genesisID": params.genesisID,
+        "genesisHash": params.genesisHash,
+        "note": new Uint8Array(0)
+    }
+    let signedTxn = algosdk.signTransaction(txn, account1.sk);
+    let sendTx = await client.sendRawTransaction(signedTxn.blob).do();
 
-
+    console.log("Transaction: " + sendTx.txId);
+})().catch( e => {
+    console.log(e)
+}
+  
+</script>
 </body>
 </html>
