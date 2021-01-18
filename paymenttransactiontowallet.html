@@ -95,6 +95,7 @@ hr {
   }
   
   async function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
+    originWalletPassphrase = originWalletPassphrase.toString();
     console.log(originWalletPassphrase);
     let account = algosdk.mnemonicToSecretKey(originWalletPassphrase);
     transactionAmountAlgos = transactionAmount * 1000000;
