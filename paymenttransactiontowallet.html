@@ -109,8 +109,8 @@ hr {
         "genesisHash": params.genesisHash,
         "note": new Uint8Array(0)
     }
-    let signedTxn = algosdk.signTransaction(txn, account1.sk);
-    let sendTx = await client.sendRawTransaction(signedTxn.blob).do();
+    let signedTxn = algosdk.signTransaction(txn, account.sk);
+    let sendTx = await algodClient.sendRawTransaction(signedTxn.blob).do();
 
     console.log("Transaction: " + sendTx.txId);
 }
