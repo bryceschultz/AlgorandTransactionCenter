@@ -71,7 +71,7 @@ hr {
     <br>
     <h2>Amount</h2>
     <input id="transactionAmount" type="text">
-    <p>How Many MicroAlgos Would You Like to Send</p>
+    <p>Algos</p>
     <br>
     <button id="submitTransaction" class="button" width="60" height="100">submit transaction</button>
   </div>
@@ -96,6 +96,7 @@ hr {
   
   async function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
     let account = algosdk.mnemonicToSecretKey(originWalletPassphrase);
+    transactionAmountAlgos = transactionAmount * 1000000;
     account.addr = originWalletAddress;
     let params = await algodClient.getTransactionParams().do();
     let txn = {
@@ -115,9 +116,6 @@ hr {
     console.log("Transaction: " + sendTx.txId);
 }
 
-sendTransaction('XCCVNITELEK2D2N5WWMQFTJEJVORNUXHRSEN2HMPOD26SDCOYUCDKEIDYM','ankle auction across deliver title sample cruel junior erase dawn become mammal alpha blood seminar divide dress meadow nice panic crack shell stem above figure','5B7P7D72H3AUTSM2A7RJXE25SXPJU3SMJNKTVWEGX3MZRMQL7J3I7GPZFY',100000);
-  
-// Get the submit button
 var btn = document.getElementById("submitTransaction");
 
 // When the user clicks on the button, open the modal
