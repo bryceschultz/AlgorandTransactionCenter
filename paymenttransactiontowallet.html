@@ -123,9 +123,13 @@ var btn = document.getElementById("submitTransaction");
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
   var originWalletAddress = document.getElementById("originWalletAddress").toString();
+  console.log(originWalletAddress);
   var originWalletPassphrase = document.getElementById("originWalletPassphrase").toString();
+  console.log(originWalletPassphrase);
   var destinationWalletAddress = document.getElementById("destinationWalletAddress").toString();
+  console.log(destinationWalletAddress);
   var transactionAmount = document.getElementById("transactionAmount");
+  console.log(transactionAmount);
   var transactionResult = sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount);
 }
   
