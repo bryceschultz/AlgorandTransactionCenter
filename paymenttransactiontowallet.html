@@ -95,7 +95,6 @@ hr {
   }
   
   async function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
-    originWalletPassphrase = originWalletPassphrase.toString();
     console.log(originWalletPassphrase);
     let account = algosdk.mnemonicToSecretKey(originWalletPassphrase);
     transactionAmountAlgos = transactionAmount * 1000000;
@@ -122,13 +121,13 @@ var btn = document.getElementById("submitTransaction");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
-  var originWalletAddress = document.getElementById("originWalletAddress").toString();
+  var originWalletAddress = document.getElementById("originWalletAddress").value;
   console.log(originWalletAddress);
-  var originWalletPassphrase = document.getElementById("originWalletPassphrase").toString();
+  var originWalletPassphrase = document.getElementById("originWalletPassphrase").value();
   console.log(originWalletPassphrase);
-  var destinationWalletAddress = document.getElementById("destinationWalletAddress").toString();
+  var destinationWalletAddress = document.getElementById("destinationWalletAddress").value();
   console.log(destinationWalletAddress);
-  var transactionAmount = document.getElementById("transactionAmount");
+  var transactionAmount = document.getElementById("transactionAmount").value;
   console.log(transactionAmount);
   var transactionResult = sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount);
 }
