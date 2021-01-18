@@ -91,8 +91,8 @@ hr {
         console.log( "My address: " + account.addr );
         console.log( "My passphrase: " + passphrase )
   }
-
-(async function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
+  
+async function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
     let account = algosdk.mnemonicToSecretKey(originWalletPassphrase);
     account.addr = originWalletAddress;
     let params = await client.getTransactionParams().do();
@@ -111,7 +111,7 @@ hr {
     let sendTx = await client.sendRawTransaction(signedTxn.blob).do();
 
     console.log("Transaction: " + sendTx.txId);
-})().catch( e => {
+}().catch( e => {
     console.log(e)
 })
 
