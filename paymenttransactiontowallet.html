@@ -85,6 +85,8 @@ hr {
   }
   
   const algodClient = new algosdk.Algodv2(token, baseServer, port);
+  
+  
   function makeNewDestinationWallet() {
         var account = algosdk.generateAccount();
         var passphrase = algosdk.secretKeyToMnemonic(account.sk);
@@ -95,9 +97,9 @@ hr {
   async function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
     let account = algosdk.mnemonicToSecretKey(originWalletPassphrase);
     account.addr = originWalletAddress;
-    let params = await client.getTransactionParams().do();
+    let params = await algodClient.getTransactionParams().do();
     let txn = {
-        "from": account1.addr,
+        "from": account.addr,
         "to": destinationWalletAddress,
         "fee": 1,
         "amount": transactionAmount,
