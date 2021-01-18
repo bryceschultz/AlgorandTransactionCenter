@@ -64,7 +64,7 @@ hr {
     <hr>
     <br>
     <h2>To</h2>
-    <input id="destinationWalletAddress" type="text">
+    <input id="destinationWalletAddress" type="text" style="height:120px; width:300px;">
     <p>Destination email address</p>
     <br>
     <hr>
@@ -95,6 +95,7 @@ hr {
   }
   
   async function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
+    console.log(originWalletPassphrase);
     let account = algosdk.mnemonicToSecretKey(originWalletPassphrase);
     transactionAmountAlgos = transactionAmount * 1000000;
     account.addr = originWalletAddress;
