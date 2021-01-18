@@ -97,14 +97,14 @@ hr {
   async function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
     console.log(originWalletPassphrase);
     let account = algosdk.mnemonicToSecretKey(originWalletPassphrase);
-    transactionAmountAlgos = transactionAmount * 1000000;
+    let transactionAmountMicroAlgos = transactionAmount * 1000000;
     account.addr = originWalletAddress;
     let params = await algodClient.getTransactionParams().do();
     let txn = {
         "from": account.addr,
         "to": destinationWalletAddress,
         "fee": 1,
-        "amount": transactionAmount,
+        "amount": transactionAmountMicroAlgos,
         "firstRound": params.firstRound,
         "lastRound": params.lastRound,
         "genesisID": params.genesisID,
