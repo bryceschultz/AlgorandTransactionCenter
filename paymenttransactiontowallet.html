@@ -86,6 +86,24 @@ hr {
   
   const algodClient = new algosdk.Algodv2(token, baseServer, port);
   
+  function sendTransaction1(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
+    var postString = "http://127.0.0.1:5000/postTransactionToExistingAccount?transactionAmountInAlgos="+transactionAmount+"&originWalletPassphrase="+originWalletPassphrase+"&originWalletAddress="+originWalletAddress+"&destinationWalletAddress="+destinationWalletAddress;    
+    var form = new FormData();
+    var settings = {
+    "url": postString,
+    "method": "POST",
+    "timeout": 0,
+    "processData": false,
+    "mimeType": "multipart/form-data",
+    "contentType": false,
+    "data": form
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+     var respObj = JSON.parse(response);
+  });
+  }
   
   function makeNewDestinationWallet() {
         var account = algosdk.generateAccount();
@@ -129,7 +147,7 @@ btn.onclick = function() {
   console.log(destinationWalletAddress);
   var transactionAmount = document.getElementById("transactionAmount").value;
   console.log(transactionAmount);
-  var transactionResult = sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount);
+  var transactionResult = sendTransaction1(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount);
 }
   
 </script>
