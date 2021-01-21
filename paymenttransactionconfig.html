@@ -188,9 +188,9 @@ input:checked + .slider:after
 
 <br><br><br>
 
-
+<a href="paymenttransactiontowallet.html">
 <button id="nextButton" class="button" width="60" height="100">next</button>
-
+<a href="paymenttransactiontowallet.html">
 </div>
  
 
@@ -214,7 +214,7 @@ input:checked + .slider:after
     <p style="word-wrap:break-word; display:inline-block;" id="passphrase"></p>
     <br>
     <br>
-    <a href="paymenttransactiontowallet.html">
+    <a id="modalLink" href="paymenttransactiontowallet.html">
     <button id="nextButtonToTransaction" class="button" width="60" height="100">next</button>
     </a>
   </div>
@@ -313,10 +313,11 @@ btn.onclick = function() {
             window.location.replace("https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontoemail.html");
           } else if (needToMakeNewOriginWallet == true && needToMakeNewDestinationWallet == false) {
             makeNewOriginWallet();
+            document.getElementById("modalLink").href = "https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontowallet.html";
             modal.style.display = "block";
           } else {
             console.log('nice! no wallets to generate');
-            window.location.replace("https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontoemail.html");
+            window.location.replace("https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontowallet.html");
           }
 }
 
