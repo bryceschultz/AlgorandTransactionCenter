@@ -146,6 +146,11 @@ hr {
 </div>
   
 <script>  
+  
+  // Get the modal
+var modal = document.getElementById("myModal");
+  
+  
   function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
     var postString = "https://algorandtransactioncenter.herokuapp.com/postTransactionToExistingAccount?transactionAmountInAlgos="+transactionAmount+"&originWalletPassphrase="+originWalletPassphrase+"&originWalletAddress="+originWalletAddress+"&destinationWalletAddress="+destinationWalletAddress;    
     var form = new FormData();
@@ -167,9 +172,8 @@ hr {
     $('#originAccountId').text(respObj.origin_account_id);
     $('#destinationAccountId').text(respObj.destination_account_id);
     $('#confirmationRound').text(respObj.confirmed_round);
-  });
-    
     modal.style.display = "block";
+  });
   }
   
 var newTransactionToSameWalletBtn = document.getElementById("newTransactionToSameWallet");  
