@@ -147,7 +147,7 @@ hr {
   
 <script>  
   function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
-    var postString = "https://algorandtransactioncenter.herokuapp.com/postTransactionToExistingAccount??transactionAmountInAlgos="+transactionAmount+"&originWalletPassphrase="+originWalletPassphrase+"&originWalletAddress="+originWalletAddress+"&destinationWalletAddress="+destinationWalletAddress;    
+    var postString = "https://algorandtransactioncenter.herokuapp.com/postTransactionToExistingAccount?transactionAmountInAlgos="+transactionAmount+"&originWalletPassphrase="+originWalletPassphrase+"&originWalletAddress="+originWalletAddress+"&destinationWalletAddress="+destinationWalletAddress;    
     var form = new FormData();
     var settings = {
     "url": postString,
