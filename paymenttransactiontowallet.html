@@ -115,10 +115,11 @@ hr {
 
   <!-- Modal content -->
   <div class="modal-content">
-    <h4>Next you will need to:</h4>
-    <h5>1.</h5><p> Save your wallet ID and passphrase somewhere safe as you will need these for each transaction you want to make</p>
-    <h5>2.</h5><p> Open this link in a new tab and enter you Wallet Address to fund your account: </p><a href="https://bank.testnet.algorand.network/">testnet faucet</a>
-    <h5>3.</h5><p> Click the next button below and finish your transaction</p>
+    <h4>Transaction Details:</h4>
+    <h5>Transaction ID: </h5><p id="transactionId"></p>
+    <h5>From: </h5><p id="originAccountId"></p>
+    <h5>To: </h5><p id="destinationAccountId"></p>
+    <h5>Confirmed in Round: </h5><p id="confirmationRound"></p>
     <br>
     <br>
     <h4>Wallet ID:</h4>
@@ -129,8 +130,14 @@ hr {
     <p style="word-wrap:break-word; display:inline-block;" id="passphrase"></p>
     <br>
     <br>
+    <button id="newTransactionToSameWallet" class="button" width="60" height="100">New Transaction to Same Wallet</button>
+    <br>
     <a id="modalLink" href="paymenttransactiontowallet.html">
-    <button id="nextButtonToTransaction" class="button" width="60" height="100">next</button>
+    <button id="newTransactionToNewWallet" class="button" width="60" height="100">New Transaction to New Wallet</button>
+    </a>
+    <br>
+    <a id="modalLink" href="bryceschultz.github.io/AlgorandTransactionCenter/index.html">
+    <button id="goHome" class="button" width="60" height="100">Home</button>
     </a>
   </div>
   </div>
@@ -155,9 +162,19 @@ hr {
   $.ajax(settings).done(function (response) {
     console.log(response);
     var respObj = JSON.parse(response);
+    $('#intercept').text(respObj.Intercept);
+    $('#transactionId').text(respObj.transaction_id);
+    $('#originAccountId').text(respObj.origin_account_id);
+    $('#destinationAccountId').text(respObj.destination_account_id);
+    $('#confirmationRound').text(respObj.confirmed_round);
     modal.style.display = "block";
   });
   }
+  
+var newTransactionToSameWalletBtn = document.getElementById("newTransactionToSameWallet");  
+ newTransactionToSameWalletBtn.onclick = function() {
+   modal.style.display = "none";
+ }
   
 var btn = document.getElementById("submitTransaction");
 
