@@ -190,9 +190,8 @@ input:checked + .slider:after
 
 <br><br><br>
 
-<a href="paymenttransactiontowallet.html">
+
 <button id="nextButton" class="button" width="60" height="100">next</button>
-<a href="paymenttransactiontowallet.html">
 </div>
  
 
@@ -287,6 +286,7 @@ btn.onclick = function() {
             if (needToMakeNewOriginWallet == true && needToMakeNewDestinationWallet == true) {
             makeNewDestinationWallet();
             makeNewOriginWallet();
+            document.getElementById("modalLink").href = "https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontoemail.html";
             modal.style.display = "block";
           } else if (needToMakeNewOriginWallet == false && needToMakeNewDestinationWallet == true) {
             makeNewDestinationWallet();
