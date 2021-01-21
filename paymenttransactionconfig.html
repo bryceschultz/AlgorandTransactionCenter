@@ -284,12 +284,10 @@ var btn = document.getElementById("nextButton");
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
             if (needToMakeNewOriginWallet == true && needToMakeNewDestinationWallet == true) {
-            makeNewDestinationWallet();
             makeNewOriginWallet();
             document.getElementById("modalLink").href = "https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontoemail.html";
             modal.style.display = "block";
           } else if (needToMakeNewOriginWallet == false && needToMakeNewDestinationWallet == true) {
-            makeNewDestinationWallet();
             window.location.replace("https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontoemail.html");
           } else if (needToMakeNewOriginWallet == true && needToMakeNewDestinationWallet == false) {
             makeNewOriginWallet();
