@@ -79,17 +79,9 @@ hr {
   </div>
 </div>
   
-<script>
-  const baseServer = 'https://testnet-algorand.api.purestake.io/ps2'
-  const port = '';
-  const token = {
-      'X-API-Key': 'cfoNpaCzsF9xJRTOO39rF78aJRbK4fqj4W8LNv6k'
-  }
-  
-  const algodClient = new algosdk.Algodv2(token, baseServer, port);
-  
+<script>  
   function sendTransaction1(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
-    var postString = "http://127.0.0.1:5000/postTransactionToExistingAccount?transactionAmountInAlgos="+transactionAmount+"&originWalletPassphrase="+originWalletPassphrase+"&originWalletAddress="+originWalletAddress+"&destinationWalletAddress="+destinationWalletAddress;    
+    var postString = "https://algorandtransactioncenter.herokuapp.com/postTransactionToExistingAccount??transactionAmountInAlgos="+transactionAmount+"&originWalletPassphrase="+originWalletPassphrase+"&originWalletAddress="+originWalletAddress+"&destinationWalletAddress="+destinationWalletAddress;    
     var form = new FormData();
     var settings = {
     "url": postString,
@@ -107,36 +99,6 @@ hr {
   });
   }
   
-  function makeNewDestinationWallet() {
-        var account = algosdk.generateAccount();
-        var passphrase = algosdk.secretKeyToMnemonic(account.sk);
-        console.log( "My address: " + account.addr );
-        console.log( "My passphrase: " + passphrase )
-  }
-  
-  async function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletAddress, transactionAmount) {
-    console.log(originWalletPassphrase);
-    let account = algosdk.mnemonicToSecretKey(originWalletPassphrase);
-    let transactionAmountMicroAlgos = transactionAmount * 1000000;
-    account.addr = originWalletAddress;
-    let params = await algodClient.getTransactionParams().do();
-    let txn = {
-        "from": account.addr,
-        "to": destinationWalletAddress,
-        "fee": 1,
-        "amount": transactionAmountMicroAlgos,
-        "firstRound": params.firstRound,
-        "lastRound": params.lastRound,
-        "genesisID": params.genesisID,
-        "genesisHash": params.genesisHash,
-        "note": new Uint8Array(0)
-    }
-    let signedTxn = algosdk.signTransaction(txn, account.sk);
-    let sendTx = await algodClient.sendRawTransaction(signedTxn.blob).do();
-
-    console.log("Transaction: " + sendTx.txId);
-}
-
 var btn = document.getElementById("submitTransaction");
 
 // When the user clicks on the button, open the modal
