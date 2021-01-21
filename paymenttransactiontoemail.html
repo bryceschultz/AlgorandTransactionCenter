@@ -51,6 +51,38 @@ hr {
   background-color: #2ab934;
   color: white;
 }
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*--------- END --------*/
 </style>
 <body>
 
@@ -67,50 +99,92 @@ hr {
     <br>
     <h2>To</h2>
     <input id="destinationWalletEmail" type="text">
-    <p>Destination email address</p>
+    <p>Destination wallet email</p>
     <br>
-    <a href="payexistingwallet.html">
+    <hr>
+    <br>
+    <h2>Amount</h2>
+    <input id="transactionAmount" type="number">
+    <p>Algos (0.1 minimum)</p>
+    <br>
     <button id="submitTransaction" class="button" width="60" height="100">submit transaction</button>
+  </div>
+  
+  <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <h4>Transaction Details:</h4>
+    <h5>Transaction ID: </h5><p id="transactionId"></p>
+    <h5>Confirmed in Round: </h5><p id="confirmationRound"></p>
+    <h5>From: </h5><p id="originAccountId"></p>
+    <h5>To: </h5><p id="destinationAccountId"></p>
+    <br>
+    <button id="newTransactionToSameWallet" class="button" width="60" height="100">New Transaction to Same Wallet</button>
+    <br>
+    <a id="modalLink" href="paymenttransactiontowallet.html">
+    <button id="newTransactionToNewWallet" class="button" width="60" height="100">New Transaction to New Wallet</button>
     </a>
+    <br>
+    <a id="modalLink" href="bryceschultz.github.io/AlgorandTransactionCenter/index.html">
+    <button id="goHome" class="button" width="60" height="100">Home</button>
+    </a>
+  </div>
+  </div>
+    
   </div>
 </div>
   
-<script>
-  const baseServer = 'https://testnet-algorand.api.purestake.io/ps2'
-  const port = '';
-  const token = {
-      'X-API-Key': 'cfoNpaCzsF9xJRTOO39rF78aJRbK4fqj4W8LNv6k'
+<script>  
+  
+  // Get the modal
+var modal = document.getElementById("myModal");
+  
+  
+  function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount) {
+    var postString = "https://algorandtransactioncenter.herokuapp.com/postTransactionToNewAccount?transactionAmountInAlgos="+transactionAmount+"&originWalletPassphrase="+originWalletPassphrase+"&originWalletAddress="+originWalletAddress+"&destinationWalletEmail="+destinationWalletEmail;    
+    var form = new FormData();
+    var settings = {
+    "url": postString,
+    "method": "POST",
+    "timeout": 0,
+    "processData": false,
+    "mimeType": "multipart/form-data",
+    "contentType": false,
+    "data": form
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+    var respObj = JSON.parse(response);
+    $('#intercept').text(respObj.Intercept);
+    $('#transactionId').text(respObj.transaction_id);
+    $('#originAccountId').text(respObj.origin_account_id);
+    $('#destinationAccountId').text(respObj.destination_account_id);
+    $('#confirmationRound').text(respObj.confirmed_round);
+    modal.style.display = "block";
+  });
   }
   
-  const algodClient = new algosdk.Algodv2(token, baseServer, port);
-  function makeNewDestinationWallet() {
-        var account = algosdk.generateAccount();
-        var passphrase = algosdk.secretKeyToMnemonic(account.sk);
-        console.log( "My address: " + account.addr );
-        console.log( "My passphrase: " + passphrase )
-  }
- 
-var mnemomonic1 = document.getElementById("nextButton")  
-let account1 = algosdk.mnemonicToSecretKey(mnemonic1);
-function sendTransaction(destinationAddress, amt) {
-    let params = await client.getTransactionParams().do();
-    let txn = {
-        "from": account1.addr,
-        "to": destinationAddress,
-        "fee": 1,
-        "amount": amt, // 10 algos
-        "firstRound": params.firstRound,
-        "lastRound": params.lastRound,
-        "genesisID": params.genesisID,
-        "genesisHash": params.genesisHash,
-        "note": new Uint8Array(0)
-    }
-    let signedTxn = algosdk.signTransaction(txn, account1.sk);
-    let sendTx = await client.sendRawTransaction(signedTxn.blob).do();
+var newTransactionToSameWalletBtn = document.getElementById("newTransactionToSameWallet");  
+ newTransactionToSameWalletBtn.onclick = function() {
+   modal.style.display = "none";
+ }
+  
+var btn = document.getElementById("submitTransaction");
 
-    console.log("Transaction: " + sendTx.txId);
-})().catch( e => {
-    console.log(e)
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  var originWalletAddress = document.getElementById("originWalletAddress").value;
+  console.log(originWalletAddress);
+  var originWalletPassphrase = document.getElementById("originWalletPassphrase").value;
+  console.log(originWalletPassphrase);
+  var destinationWalletEmail = document.getElementById("destinationWalletEmail").value;
+  console.log(destinationWalletEmail);
+  var transactionAmount = document.getElementById("transactionAmount").value;
+  console.log(transactionAmount);
+  var transactionResult = sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount);
 }
   
 </script>
