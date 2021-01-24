@@ -142,8 +142,8 @@ hr {
 var modal = document.getElementById("myModal");
   
   
-  function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount) {
-    var postString = "https://algorandtransactioncenter.herokuapp.com/postTransactionToNewAccount?transactionAmountInAlgos="+transactionAmount+"&originWalletPassphrase="+originWalletPassphrase+"&originWalletAddress="+originWalletAddress+"&destinationWalletEmail="+destinationWalletEmail;    
+  function sendRequest(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount) {
+    var postString = "https://algorandtransactioncenter.herokuapp.com/postRequestTransaction?transactionAmountInAlgos="+transactionAmount+"&originWalletPassphrase="+originWalletPassphrase+"&originWalletAddress="+originWalletAddress+"&destinationWalletEmail="+destinationWalletEmail;    
     var form = new FormData();
     var settings = {
     "url": postString,
@@ -187,15 +187,13 @@ var btn = document.getElementById("submitTransaction");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
-  var originWalletAddress = document.getElementById("originWalletAddress").value;
-  console.log(originWalletAddress);
-  var originWalletPassphrase = document.getElementById("originWalletPassphrase").value;
-  console.log(originWalletPassphrase);
-  var destinationWalletEmail = document.getElementById("destinationWalletEmail").value;
-  console.log(destinationWalletEmail);
+  var requestToEmailOrAlgoAddress = document.getElementById("requestToEmailOrAlgoAddress").value;
+  console.log(requestToEmailOrAlgoAddress);
+  var requestFromEmail = document.getElementById("requestFromEmail").value;
+  console.log(requestFromEmail);
   var transactionAmount = document.getElementById("transactionAmount").value;
   console.log(transactionAmount);
-  var transactionResult = sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount);
+  var transactionResult = sendRequest(requestToEmailOrAlgoAddress, requestFromEmail, transactionAmount);
 }
   
 </script>
