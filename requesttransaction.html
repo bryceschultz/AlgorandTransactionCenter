@@ -21,6 +21,11 @@ body, html {
   font-size: 16px;
 }
 
+.blue {
+color: blue;
+}
+  
+  
 .topleft {
   position: absolute;
   top: 0;
@@ -97,12 +102,13 @@ hr {
     <p>Your wallet address</p>
     <br>
     <h2>To</h2>
-    <p>Would you like the algos to be sent to your email or address?</p>
+    <p>Send to </p><p class="blue" id="walletOrEmail">Email</p>
     <input type="radio" id="email" name="requestTo" value="email">
     <label for="email">Email</label><br>
     <input type="radio" id="wallet" name="requestTo" value="wallet">
     <label for="wallet">Wallet</label><br>
     <input id="requestToEmailOrAddress" type="text">
+    <br>
     <button id="submitRequest" class="button" width="60" height="100">submit request</button>
   </div>
   
@@ -167,6 +173,17 @@ var newTransactionToSameWalletBtn = document.getElementById("newTransactionToSam
  newTransactionToSameWalletBtn.onclick = function() {
    modal.style.display = "none";
  }
+  
+var radioEmail = document.getElementById("email");
+var radioWalletAddress = document.getElementById("walletAddress");
+
+// When the user clicks the email radio button, change the text
+radioEmail.onclick = function() {
+  document.getElementById("walletOrEmail").innerHTML = "email"
+}
+radioWalletAddress.onclick = function() {
+  document.getElementById("walletOrEmail").innerHTML = "algorand address"
+}
   
 var btn = document.getElementById("submitTransaction");
 
