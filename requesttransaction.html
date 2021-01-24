@@ -98,11 +98,11 @@ hr {
     <p>Algos (0.1 minimum)</p>
     <br>
     <h2>From</h2>
-    <input id="originWalletAddress" type="text" placeholder="Email">
+    <input id="requestFromEmail" type="text" placeholder="Email">
     <p>Request from this email address</p>
     <br>
     <h2>To</h2>
-    <input id="requestToEmailOrAddress" type="text">
+    <input id="requestToEmailOrAlgoAddress" type="text">
     <p>Fulfill request to this email or algorand address</p>
     <br>
     <br>
@@ -182,7 +182,7 @@ radioWalletAddress.onclick = function() {
   document.getElementById("walletOrEmail").innerHTML = "algorand address"
 }
   
-var btn = document.getElementById("submitTransaction");
+var btn = document.getElementById("submitRequest");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
