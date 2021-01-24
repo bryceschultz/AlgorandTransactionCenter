@@ -171,17 +171,6 @@ var newTransactionToSameWalletBtn = document.getElementById("newTransactionToSam
    modal.style.display = "none";
  }
   
-var radioEmail = document.getElementById("email");
-var radioWalletAddress = document.getElementById("walletAddress");
-
-// When the user clicks the email radio button, change the text
-radioEmail.onclick = function() {
-  document.getElementById("walletOrEmail").innerHTML = "email"
-}
-radioWalletAddress.onclick = function() {
-  document.getElementById("walletOrEmail").innerHTML = "algorand address"
-}
-  
 var btn = document.getElementById("submitRequest");
 
 // When the user clicks on the button, open the modal
