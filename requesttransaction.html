@@ -105,6 +105,9 @@ hr {
     <input id="requestToEmailOrAlgoAddress" type="text">
     <p>Fulfill request to this email or algorand address</p>
     <br>
+    <h2>Add a note</h2>
+    <textarea id="requestNote" type="text"></textarea>
+    <br>
     <br>
     <button id="submitRequest" class="button" width="60" height="100">submit request</button>
   </div>
@@ -141,8 +144,8 @@ hr {
 var modal = document.getElementById("myModal");
   
   
-  function sendRequest(requestToEmailOrAlgoAddress, requestFromEmail, transactionAmount) {
-    var postString = "https://algorandtransactioncenter.herokuapp.com/postRequestTransaction?transactionAmountInAlgos="+transactionAmount+"&requestToEmailOrAlgoAddress="+requestToEmailOrAlgoAddress+"&requestFromEmail="+requestFromEmail;    
+  function sendRequest(requestToEmailOrAlgoAddress, requestFromEmail, transactionAmount, requestNote) {
+    var postString = "https://algorandtransactioncenter.herokuapp.com/postRequestTransaction?transactionAmountInAlgos="+transactionAmount+"&requestToEmailOrAlgoAddress="+requestToEmailOrAlgoAddress+"&requestFromEmail="+requestFromEmail+"&requestNote="+requestNote;    
     var form = new FormData();
     var settings = {
     "url": postString,
@@ -181,7 +184,9 @@ btn.onclick = function() {
   console.log(requestFromEmail);
   var transactionAmount = document.getElementById("transactionAmount").value;
   console.log(transactionAmount);
-  var transactionResult = sendRequest(requestToEmailOrAlgoAddress, requestFromEmail, transactionAmount);
+  var requestNote = document.getElementById("requestNote").value;
+  console.log(requestNote);
+  var transactionResult = sendRequest(requestToEmailOrAlgoAddress, requestFromEmail, transactionAmount, requestNote);
 }
   
 </script>
