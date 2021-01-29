@@ -141,8 +141,8 @@ hr {
 var modal = document.getElementById("myModal");
   
   
-  function sendRequest(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount) {
-    var postString = "https://algorandtransactioncenter.herokuapp.com/postRequestTransaction?transactionAmountInAlgos="+transactionAmount+"&originWalletPassphrase="+originWalletPassphrase+"&originWalletAddress="+originWalletAddress+"&destinationWalletEmail="+destinationWalletEmail;    
+  function sendRequest(requestToEmailOrAlgoAddress, requestFromEmail, transactionAmount) {
+    var postString = "https://algorandtransactioncenter.herokuapp.com/postRequestTransaction?transactionAmountInAlgos="+transactionAmount+"&requestToEmailOrAlgoAddress="+requestToEmailOrAlgoAddress+"&requestFromEmail="+requestFromEmail;    
     var form = new FormData();
     var settings = {
     "url": postString,
