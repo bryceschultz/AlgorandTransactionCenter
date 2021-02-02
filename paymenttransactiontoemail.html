@@ -139,7 +139,7 @@ hr {
 <script> 
 
   //Get any variables passed along with URL
-var url = URL(window.location.href);
+var url = new URL(window.location.href);
 var fulfillRequestTo = url.searchParams.get("fulfillRequestTo");
 document.getElementById("destinationWalletEmail").innerHTML = fulfillRequestTo;
 var fulfillRequestAmount = url.searchParams.get("fulfillRequestAmount");
