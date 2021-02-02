@@ -139,11 +139,17 @@ hr {
 <script> 
 
   //Get any variables passed along with URL
+  function grabLinkParams() {
 var url = new URL(window.location.href);
 var fulfillRequestTo = url.searchParams.get("fulfillRequestTo");
 document.getElementById("destinationWalletEmail").innerHTML = fulfillRequestTo;
 var fulfillRequestAmount = url.searchParams.get("fulfillRequestAmount");
 document.getElementById("transactionAmount").innerHTML = fulfillRequestAmount;
+  };
+  
+  //Calling function on page load
+  window.onload = grabLinkParams;
+  
   
   // Get the modal
 var modal = document.getElementById("myModal");
