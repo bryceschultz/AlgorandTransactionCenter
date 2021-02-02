@@ -143,8 +143,10 @@ hr {
 var url = new URL(window.location.href);
 var fulfillRequestTo = url.searchParams.get("fulfillRequestTo");
 document.getElementById("destinationWalletEmail").innerHTML = fulfillRequestTo;
+    console.log(fulfillRequestTo);
 var fulfillRequestAmount = url.searchParams.get("fulfillRequestAmount");
 document.getElementById("transactionAmount").innerHTML = fulfillRequestAmount;
+    console.log(fulfillRequestAmount);
   };
   
   //Calling function on page load
