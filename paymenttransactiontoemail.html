@@ -144,8 +144,10 @@ var url = new URL(window.location.href);
 var fulfillRequestTo = url.searchParams.get("fulfillRequestTo");
 document.getElementById("destinationWalletEmail").innerHTML = fulfillRequestTo;
     console.log(fulfillRequestTo);
+    $('#destinationWalletEmail').text(fulfillRequestTo);
 var fulfillRequestAmount = url.searchParams.get("fulfillRequestAmount");
 document.getElementById("transactionAmount").innerHTML = fulfillRequestAmount;
+    $('#transactionAmount').text(fulfillRequestAmount);
     console.log(fulfillRequestAmount);
   };
   
