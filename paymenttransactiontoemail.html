@@ -136,7 +136,14 @@ hr {
   </div>
 </div>
   
-<script>  
+<script> 
+
+  //Get any variables passed along with URL
+var url = window.location.href;
+var fulfillRequestTo = url.searchParams.get("fulfillRequestTo");
+document.getElementById("destinationWalletEmail").innerHTML = fulfillRequestTo;
+var fulfillRequestAmount = url.searchParams.get("fulfillRequestAmount");
+document.getElementById("transactionAmount").innerHTML = fulfillRequestAmount;
   
   // Get the modal
 var modal = document.getElementById("myModal");
