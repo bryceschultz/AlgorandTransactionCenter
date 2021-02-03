@@ -94,6 +94,7 @@ hr {
     <br>
     <input id="originWalletPassphrase" type="text">
     <p>Your wallet passphrase</p>
+    <p>Don't have a wallet?</p><button id="createAccountModal">Create Account</button>
     <br>
     <hr>
     <br>
@@ -108,6 +109,31 @@ hr {
     <p>Algos (0.1 minimum)</p>
     <br>
     <button id="submitTransaction" class="button" width="60" height="100">submit transaction</button>
+  </div>
+  
+  <!-- The Modal -->
+<div id="createAccountModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <h4>Next you will need to:</h4>
+    <h5>1.</h5><p> Save your </p><p class"blue">algorand address</p><p> and <p class="blue">passphrase</p> somewhere safe as you will need these for each transaction you want to make</p>
+    <h5>2.</h5><p> Open this link in a new tab and enter your Address as the 'Target Address': </p><a href="https://bank.testnet.algorand.network/" target="_blank">testnet faucet</a>
+    <h5>3.</h5><p> Click the next button below and finish your transaction</p>
+    <br>
+    <br>
+    <h4>Wallet Address:</h4>
+    <p style="overflow:scroll;" id="walletId"></p>
+    <br>
+    <br>
+    <h4>Passphrase:</h4>
+    <p style="word-wrap:break-word; display:inline-block;" id="passphrase"></p>
+    <br>
+    <br>
+    <a id="modalLink" href="paymenttransactiontowallet.html">
+    <button id="nextButtonToTransaction" class="button" width="60" height="100">next</button>
+    </a>
+  </div>
   </div>
   
   <!-- The Modal -->
@@ -201,6 +227,35 @@ btn.onclick = function() {
   console.log(transactionAmount);
   var transactionResult = sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount);
 }
+  
+  
+  //////////////////////////
+  ///            Modal
+  //////////////////////////
+  // Get the modal
+var createAccountModal = document.getElementById("createAccountModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("nextButton");
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+            if (needToMakeNewOriginWallet == true && needToMakeNewDestinationWallet == true) {
+            makeNewOriginWallet();
+            document.getElementById("modalLink").href = "https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontoemail.html";
+            createAccountModal.style.display = "block";
+          } else if (needToMakeNewOriginWallet == false && needToMakeNewDestinationWallet == true) {
+            window.location.replace("https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontoemail.html");
+          } else if (needToMakeNewOriginWallet == true && needToMakeNewDestinationWallet == false) {
+            makeNewOriginWallet();
+            document.getElementById("modalLink").href = "https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontowallet.html";
+            createAccountModal.style.display = "block";
+          } else {
+            console.log('nice! no wallets to generate');
+            window.location.replace("https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontowallet.html");
+          }
+}
+
   
 </script>
 </body>
