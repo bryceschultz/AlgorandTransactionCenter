@@ -184,9 +184,6 @@ window.addEventListener( "pageshow", function ( event ) {
   }
   
   const algodClient = new algosdk.Algodv2(token, baseServer, port);
-  let needToMakeNewDestinationWallet = false;
-  let needToMakeNewOriginWallet = false;
-  
   
   /////
   //////Making new origin wallet
@@ -274,20 +271,10 @@ var createAccountModal = document.getElementById("createAccountModal");
 
 // When the user clicks on the button, open the modal
 createAccountModal.onclick = function() {
-            if (needToMakeNewOriginWallet == true && needToMakeNewDestinationWallet == true) {
+            if (needToMakeNewOriginWallet == true) {
             makeNewOriginWallet();
-            document.getElementById("modalLink").href = "https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontoemail.html";
             createAccountModal.style.display = "block";
-          } else if (needToMakeNewOriginWallet == false && needToMakeNewDestinationWallet == true) {
-            window.location.replace("https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontoemail.html");
-          } else if (needToMakeNewOriginWallet == true && needToMakeNewDestinationWallet == false) {
-            makeNewOriginWallet();
-            document.getElementById("modalLink").href = "https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontowallet.html";
-            createAccountModal.style.display = "block";
-          } else {
-            console.log('nice! no wallets to generate');
-            window.location.replace("https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontowallet.html");
-          }
+          } 
 }
 
   
