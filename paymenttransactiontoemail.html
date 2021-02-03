@@ -131,7 +131,7 @@ hr {
     <br>
     <br>
     <a id="modalLink" href="paymenttransactiontowallet.html">
-    <button id="nextButtonToTransaction" class="button" width="60" height="100">next</button>
+    <button class="button" width="60" height="100">next</button>
     </a>
   </div>
   </div>
@@ -235,11 +235,8 @@ btn.onclick = function() {
   // Get the modal
 var createAccountModal = document.getElementById("createAccountModal");
 
-// Get the button that opens the modal
-var btn = document.getElementById("nextButton");
-
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
+createAccountModal.onclick = function() {
             if (needToMakeNewOriginWallet == true && needToMakeNewDestinationWallet == true) {
             makeNewOriginWallet();
             document.getElementById("modalLink").href = "https://bryceschultz.github.io/AlgorandTransactionCenter/paymenttransactiontoemail.html";
