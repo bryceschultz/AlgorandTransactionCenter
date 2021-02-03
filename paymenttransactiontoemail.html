@@ -163,7 +163,44 @@ hr {
 </div>
   
 <script> 
-
+/////Refreshing any values if user leaves page then hits back
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted || 
+                         ( typeof window.performance != "undefined" && 
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    // Handle page restore.
+    window.location.reload();
+  }
+});
+  
+  //////
+  ///// Establishing Alogrand js client
+  /////
+  const baseServer = 'https://testnet-algorand.api.purestake.io/ps2'
+  const port = '';
+  const token = {
+      'X-API-Key': 'cfoNpaCzsF9xJRTOO39rF78aJRbK4fqj4W8LNv6k'
+  }
+  
+  const algodClient = new algosdk.Algodv2(token, baseServer, port);
+  let needToMakeNewDestinationWallet = false;
+  let needToMakeNewOriginWallet = false;
+  
+  
+  /////
+  //////Making new origin wallet
+  /////
+    function makeNewOriginWallet() {
+          var account = algosdk.generateAccount();
+          var passphrase = algosdk.secretKeyToMnemonic(account.sk);
+          document.getElementById("walletId").innerHTML = account.addr;
+          document.getElementById("passphrase").innerHTML = passphrase;
+          console.log( "My address: " + account.addr );
+          console.log( "My passphrase: " + passphrase )
+  }  
+  
+  
   //Get any variables passed along with URL
   function grabLinkParams() {
     var url = new URL(window.location.href);
