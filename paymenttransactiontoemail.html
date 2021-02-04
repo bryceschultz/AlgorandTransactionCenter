@@ -94,7 +94,6 @@ hr {
     <br>
     <input id="originWalletPassphrase" type="text">
     <p>Your wallet passphrase</p>
-    <p>Don't have a wallet?</p><button id="createAccountModal">Create Account</button>
     <br>
     <hr>
     <br>
@@ -109,31 +108,6 @@ hr {
     <p>Algos (0.1 minimum)</p>
     <br>
     <button id="submitTransaction" class="button" width="60" height="100">submit transaction</button>
-  </div>
-  
-  <!-- The Modal -->
-<div id="createAccountModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <h4>Next you will need to:</h4>
-    <h5>1.</h5><p> Save your </p><p class"blue">algorand address</p><p> and <p class="blue">passphrase</p> somewhere safe as you will need these for each transaction you want to make</p>
-    <h5>2.</h5><p> Open this link in a new tab and enter your Address as the 'Target Address': </p><a href="https://bank.testnet.algorand.network/" target="_blank">testnet faucet</a>
-    <h5>3.</h5><p> Click the next button below and finish your transaction</p>
-    <br>
-    <br>
-    <h4>Wallet Address:</h4>
-    <p style="overflow:scroll;" id="walletId"></p>
-    <br>
-    <br>
-    <h4>Passphrase:</h4>
-    <p style="word-wrap:break-word; display:inline-block;" id="passphrase"></p>
-    <br>
-    <br>
-    <a id="modalLink" href="paymenttransactiontowallet.html">
-    <button class="button" width="60" height="100">next</button>
-    </a>
-  </div>
   </div>
   
   <!-- The Modal -->
@@ -163,41 +137,7 @@ hr {
 </div>
   
 <script> 
-/////Refreshing any values if user leaves page then hits back
-window.addEventListener( "pageshow", function ( event ) {
-  var historyTraversal = event.persisted || 
-                         ( typeof window.performance != "undefined" && 
-                              window.performance.navigation.type === 2 );
-  if ( historyTraversal ) {
-    // Handle page restore.
-    window.location.reload();
-  }
-});
-  
-  //////
-  ///// Establishing Alogrand js client
-  /////
-  const baseServer = 'https://testnet-algorand.api.purestake.io/ps2'
-  const port = '';
-  const token = {
-      'X-API-Key': 'cfoNpaCzsF9xJRTOO39rF78aJRbK4fqj4W8LNv6k'
-  }
-  
-  const algodClient = new algosdk.Algodv2(token, baseServer, port);
-  
-  /////
-  //////Making new origin wallet
-  /////
-    function makeNewOriginWallet() {
-          var account = algosdk.generateAccount();
-          var passphrase = algosdk.secretKeyToMnemonic(account.sk);
-          document.getElementById("walletId").innerHTML = account.addr;
-          document.getElementById("passphrase").innerHTML = passphrase;
-          console.log( "My address: " + account.addr );
-          console.log( "My passphrase: " + passphrase )
-  }  
-  
-  
+
   //Get any variables passed along with URL
   function grabLinkParams() {
     var url = new URL(window.location.href);
@@ -261,20 +201,6 @@ btn.onclick = function() {
   console.log(transactionAmount);
   var transactionResult = sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount);
 }
-  
-  
-  //////////////////////////
-  ///            Modal
-  //////////////////////////
-  // Get the modal
-var createAccountModal = document.getElementById("createAccountModal");
-
-// When the user clicks on the button, open the modal
-createAccountModal.onclick = function() {
-            makeNewOriginWallet();
-            createAccountModal.style.display = "block";
-}
-
   
 </script>
 </body>
