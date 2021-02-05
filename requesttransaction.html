@@ -148,7 +148,7 @@ var modal = document.getElementById("myModal");
     console.log(response);
     var respObj = JSON.parse(response);
     if (respObj.emailSent == true) {
-      $('#emailSent').text('Request has been sent to:' + requestFromEmail);
+      $('#emailSent').text('Request has been sent to: ' + requestFromEmail);
     } else {
       $('#emailSent').text('We were not able to send the email. Please reload the page and try again.');
     }
