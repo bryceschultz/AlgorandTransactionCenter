@@ -82,15 +82,17 @@ hr {
   cursor: pointer;
 }
 .floating-button {
-	z-index: 1;
+	position:absolute;
+  	top: 123px;
+	right: 20px;
 	}
 /*--------- END --------*/
 </style>
 <body>
 <div class="bgimg">
   <div class="middle">
-	  <button class="floating-button" style="height:100px;width:100px;float:right;">Create Account</button>
-	  <button class="floating-button" style="height:100px;width:100px;float:right;">Fund Account</button>
+	  <button class="floating-button" style="height:100px;width:100px">Create Account</button>
+	  <button class="floating-button" style="height:100px;width:100px">Fund Account</button>
 	  <br>
     <h2>From</h2>
     <input id="originWalletAddress" type="text">
