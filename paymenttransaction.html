@@ -86,7 +86,8 @@ hr {
   	top: 5%;
 	right: 5%;
 	background-color: #d1ffd1;
-	width: 20%
+	width: 20%;
+	height : 100px;
 	}
 .floating-button-top2 {
 	position:absolute;
@@ -94,12 +95,33 @@ hr {
 	right: 5%;
 	background-color: #a6ffa6;
 	width: 20%;
+	height : 100px;
 	}
+	
+@media (max-width: 800px) {
+  /* CSS that should be displayed if width is equal to or less than 800px goes here */
+	.floating-button-top1 {
+	position:absolute;
+  	top: 5%;
+	right: 5%;
+	background-color: #d1ffd1;
+	width: 20%;
+	height : 70px;
+	}
+.floating-button-top2 {
+	position:absolute;
+  	top: 20%;
+	right: 5%;
+	background-color: #a6ffa6;
+	width: 20%;
+	height : 70px;
+	}
+}
 /*--------- END --------*/
 </style>
 <body>
-<button class="floating-button-top1" style="height:70px;width:70px">Create Account</button>
-<button class="floating-button-top2" style="height:70px;width:70px">Fund Account</button>
+<button class="floating-button-top1">Create Account</button>
+<button class="floating-button-top2">Fund Account</button>
 <div class="bgimg">
   <div class="middle">
 	  <br>
