@@ -118,21 +118,7 @@ hr {
 
   <!-- Modal content -->
   <div class="modal-content">
-    <h4>Transaction Details:</h4>
-    <h5>Transaction ID: </h5><p id="transactionId"></p>
-    <h5>Confirmed in Round: </h5><p id="confirmationRound"></p>
-    <h5>From: </h5><p id="originAccountId"></p>
-    <h5>To: </h5><p id="destinationAccountId"></p>
-    <br>
-    <button id="newTransactionToSameWallet" class="button" width="60" height="100">New Transaction to Same Email</button>
-    <br>
-    <a id="modalLink" href="paymenttransactiontowallet.html">
-    <button id="newTransactionToNewWallet" class="button" width="60" height="100">New Transaction to New Email</button>
-    </a>
-    <br>
-    <a id="modalLink" href="index.html">
-    <button id="goHome" class="button" width="60" height="100">Home</button>
-    </a>
+    <p id="emailSent"></p>
   </div>
   </div>
     
@@ -161,12 +147,9 @@ var modal = document.getElementById("myModal");
   $.ajax(settings).done(function (response) {
     console.log(response);
     var respObj = JSON.parse(response);
-    $('#intercept').text(respObj.Intercept);
-    $('#transactionId').text(respObj.transaction_id);
-    $('#originAccountId').text(respObj.origin_account_id);
-    $('#destinationAccountId').text(respObj.destination_account_id);
-    $('#confirmationRound').text(respObj.confirmed_round);
-    modal.style.display = "block";
+    if (respObj.emailSent == true) {
+      $('#emailSent').text('Request has been sent to:' + requestFromEmail);
+    }
   });
   }
   
@@ -179,6 +162,7 @@ var btn = document.getElementById("submitRequest");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
+  modal.style.display = "block";
   var requestToEmailOrAlgoAddress = document.getElementById("requestToEmailOrAlgoAddress").value;
   console.log(requestToEmailOrAlgoAddress);
   var requestFromEmail = document.getElementById("requestFromEmail").value;
