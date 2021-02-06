@@ -81,75 +81,47 @@ hr {
   text-decoration: none;
   cursor: pointer;
 }
-	
 .floating-button-top1 {
-  position: absolute;
-top: 14%;
-right: 2%;
-}
-	
+	position:absolute;
+  	top: 5%;
+	right: 5%;
+	background-color: #d1ffd1;
+	width: 20%;
+	height : 100px;
+	}
 .floating-button-top2 {
- position: absolute;
-top: 8%;
-right: 2%;
-}
-
-.create-and-fund-button {
-width: 20%;
-height: 5%;
-  text-align: center;
-  color: #000;
-  text-transform: uppercase;
-  cursor: pointer;
-  background-color: transparent;
-  border: 3px solid #00d7c3;
-  border-radius: 50px;
-  -webkit-transition: all .15s ease-in-out;
-  transition: all .15s ease-in-out;
-  color: #00d7c3;
-}
-
-.submit-button {
-width: 100%;
-height: 30%;
-  text-align: center;
-  color: #000;
-  text-transform: uppercase;
-  cursor: pointer;
-  display: inline-block;
-  background-color: transparent;
-  border: 3px solid #00d7c3;
-  border-radius: 50px;
-  -webkit-transition: all .15s ease-in-out;
-  transition: all .15s ease-in-out;
-  color: #00d7c3;
-}
-	
-.create-and-fund-button:hover {
-  box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
-  border: 3px solid #00d7c3;
-}
-.submit-button:hover {
-  box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
-  border: 3px solid #00d7c3;
-}
+	position:absolute;
+  	top: 20%;
+	right: 5%;
+	background-color: #a6ffa6;
+	width: 20%;
+	height : 100px;
+	}
 	
 @media (max-width: 800px) {
   /* CSS that should be displayed if width is equal to or less than 800px goes here */
 	.floating-button-top1 {
+	position:absolute;
   	top: 5%;
 	right: 5%;
+	background-color: #d1ffd1;
+	width: 20%;
+	height : 70px;
 	}
 .floating-button-top2 {
+	position:absolute;
   	top: 20%;
 	right: 5%;
+	background-color: #a6ffa6;
+	width: 20%;
+	height : 70px;
 	}
 }
 /*--------- END --------*/
 </style>
 <body>
-<button class="floating-button-top1 create-and-fund-button">Create Account</button>
-<button class="floating-button-top2 create-and-fund-button">Fund Account</button>
+<button class="floating-button-top1">Create Account</button>
+<button class="floating-button-top2">Fund Account</button>
 <div class="bgimg">
   <div class="middle">
 	  <br>
@@ -172,7 +144,7 @@ height: 30%;
     <input id="transactionAmount" type="number">
     <p>Algos (0.1 minimum)</p>
     <br>
-    <button id="submitTransaction" class="submit-button" width="60" height="100">submit transaction</button>
+    <button id="submitTransaction" class="button" width="60" height="100">submit transaction</button>
   </div>
   
   <!-- The Modal -->
@@ -193,7 +165,7 @@ height: 30%;
     </a>
     <br>
     <a id="modalLink" href="index.html">
-    <button id="goHome" class="floating-button-top1 button-1">Home</button>
+    <button id="goHome" class="button" width="60" height="100">Home</button>
     </a>
   </div>
   </div>
@@ -270,3 +242,4 @@ btn.onclick = function() {
 </script>
 </body>
 </html>
+
