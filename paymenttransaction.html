@@ -118,6 +118,11 @@ width: 170px;
   color: #00d7c3;
 }
 	
+.button-1:hover {
+  box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
+  border: 3px solid #00d7c3;
+}
+	
 @media (max-width: 800px) {
   /* CSS that should be displayed if width is equal to or less than 800px goes here */
 	.floating-button-top1 {
@@ -244,7 +249,7 @@ var newTransactionToSameWalletBtn = document.getElementById("newTransactionToSam
    modal.style.display = "none";
  }
   
-var btn = document.getElementById("submitTransaction");
+var btn = document.getElementById("submitTransaction button-1");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
