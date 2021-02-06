@@ -140,6 +140,8 @@ hr {
   transition: opacity 0.5s, width 0s 0.5s;
 }
 .fab-button {
+  	top: 5%;
+	right: 5%;
   width: 64px;
   height: 64px;
   border-radius: 100%;
@@ -256,14 +258,14 @@ hr {
 
 </style>
 <body>
-<a class="fab-button green floating-button-top1" href="">
+<a class="fab-button green" href="">
   <div class="plus"></div>
 </a>
 <div class="fab-options">
-  <a class="fab-option" href="#"><i class="material-icons">insert_drive_file</i>
+  <a id="createWalletButton" class="fab-option" href="#">
 	  <p>Create Wallet</p>
   </a>
-<a class="fab-option" href="#"><i class="material-icons">folder</i>
+<a id="fundWalletButton" class="fab-option" href="#">
 	<p>Fund Wallet</p>
   </a>
 </div>
