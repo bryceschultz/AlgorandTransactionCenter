@@ -120,8 +120,8 @@ hr {
 /*--------- END --------*/
 </style>
 <body>
-<button class="floating-button-top1">Create Account</button>
-<button class="floating-button-top2">Fund Account</button>
+<button id="createWalletButton" class="floating-button-top1">Create Wallet</button>
+<button id="fundWalletButton" class="floating-button-top2">Fund Wallet</button>
 <div class="bgimg">
   <div class="middle">
 	  <br>
@@ -237,6 +237,21 @@ btn.onclick = function() {
   var transactionAmount = document.getElementById("transactionAmount").value;
   console.log(transactionAmount);
   var transactionResult = sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount);
+}
+
+var btn = document.getElementById("createWalletButton");
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+	console.log('create wallet button has fired')
+}
+	
+var btn = document.getElementById("fundWalletButton");
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+	console.log('fund wallet button has fired')
+
 }
   
 </script>
