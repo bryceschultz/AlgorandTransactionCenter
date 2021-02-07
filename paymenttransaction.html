@@ -149,7 +149,6 @@ hr {
 }
 .fab-button:focus {
   z-index: 450;
-  pointer-events: none;
 }
 .fab-button:focus ~ .fab-shadow {
   width: 100%;
@@ -169,6 +168,7 @@ hr {
   margin: 30px;
   border-radius: 0;
   box-shadow: 0 0 #fff, 0 0 #fff, 0 -3px #fff, 0 3px #fff, -3px 0 #fff, 3px 0 #fff, 0 -6px #fff, 0 6px #fff, -6px 0 #fff, 6px 0 #fff, 0 -9px #fff, 0 9px #fff, -9px 0 #fff, 9px 0 #fff, 0 -12px #fff, 0 12px #fff, -12px 0 #fff, 12px 0 #fff;
+  -webkit-transform: rotate(45deg);
 }
 .fab-button .plus {
   width: 4px;
@@ -177,7 +177,20 @@ hr {
   border-radius: 0;
   box-shadow: 0 0 #fff, 0 0 #fff, 0 -3px #fff, 0 3px #fff, -3px 0 #fff, 3px 0 #fff, 0 -6px #fff, 0 6px #fff, -6px 0 #fff, 6px 0 #fff, 0 -9px #fff, 0 9px #fff, -9px 0 #fff, 9px 0 #fff, 0 -12px #fff, 0 12px #fff, -12px 0 #fff, 12px 0 #fff;
 }
-
+.fab-button:focus .plus {
+ -webkit-transform: rotate(45deg);
+}
+.fab-button .menu {
+  width: 4px;
+  height: 4px;
+  margin: 30px;
+  border-radius: 0;
+  box-shadow: -12px -9px #fff, -9px -9px #fff, -6px -9px #fff, -3px -9px #fff, 0 -9px #fff, 3px -9px #fff, 6px -9px #fff, 9px -9px #fff, 12px -9px #fff, -12px 0 #fff, -9px 0 #fff, -6px 0 #fff, -3px 0 #fff, 0 0 #fff, 3px 0 #fff, 6px 0 #fff, 9px 0 #fff, 12px 0 #fff, -12px 9px #fff, -9px 9px #fff, -6px 9px #fff, -3px 9px #fff, 0 9px #fff, 3px 9px #fff, 6px 9px #fff, 9px 9px #fff, 12px 9px #fff;
+}
+.fab-button:focus .menu {
+  box-shadow: 0 -12px #fff, 0 -9px #fff, 0 -6px #fff, 0 -3px #fff, 0 0 #fff, 0 -3px #fff, 0 -6px #fff, 0 -9px #fff, 0 -12px #fff, -12px 0 #fff, -9px 0 #fff, -6px 0 #fff, -3px 0 #fff, 0 0 #fff, 3px 0 #fff, 6px 0 #fff, 9px 0 #fff, 12px 0 #fff, 0 12px #fff, 0 9px #fff, 0 6px #fff, 0 3px #fff, 0 0 #fff, 0 3px #fff, 0 6px #fff, 0 9px #fff, 0 12px #fff;
+  -webkit-transform: rotate(45deg);
+}
 
 </style>
 <body>
@@ -393,4 +406,3 @@ window.onclick = function(event) {
 </script>
 </body>
 </html>
-
