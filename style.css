@@ -180,3 +180,11 @@ height:40px;
 .fab-button:focus .menu {
   box-shadow: 0 -12px #fff, 0 -9px #fff, 0 -6px #fff, 0 -3px #fff, 0 0 #fff, 0 -3px #fff, 0 -6px #fff, 0 -9px #fff, 0 -12px #fff, -12px 0 #fff, -9px 0 #fff, -6px 0 #fff, -3px 0 #fff, 0 0 #fff, 3px 0 #fff, 6px 0 #fff, 9px 0 #fff, 12px 0 #fff, 0 12px #fff, 0 9px #fff, 0 6px #fff, 0 3px #fff, 0 0 #fff, 0 3px #fff, 0 6px #fff, 0 9px #fff, 0 12px #fff;
 }
+.container {
+   text-align: center;
+ }
+
+.container pre {
+  display: inline-block;
+  text-align: left;
+ }
