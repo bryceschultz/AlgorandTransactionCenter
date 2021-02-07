@@ -312,7 +312,8 @@ hr {
 
   <!-- Modal content -->
   <div class="modal-content">
-    <h4>Wallet Address:</h4>
+	<p> Save your algorand address and passphrase somewhere safe as you will need these for each transaction you want to make</p>
+    <h4>Algorand Address:</h4>
     <p style="overflow:scroll;" id="walletId"></p>
     <br>
     <br>
@@ -421,6 +422,8 @@ plusbtn.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+	  plusbtnmodal.style.display = "none";
+	  createwalletmodal.style.display = "none";
   }
 }
 
