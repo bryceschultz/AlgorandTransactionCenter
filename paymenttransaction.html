@@ -150,13 +150,6 @@ hr {
   background: #2196f3;
   box-shadow: 0 2px 6px rgba(0,0,0,0.5);
   position: relative;
-  -webkit-transition: box-shadow 0.2s;
-}
-.fab-button.red {
-  background: #f44336;
-}
-.fab-button.pink {
-  background: #e91e63;
 }
 .fab-button.green {
   background: green;
@@ -171,8 +164,7 @@ hr {
 .fab-button:focus ~ .fab-shadow {
   width: 100%;
   opacity: 1;
-  -webkit-transition: opacity 0.5s, width 0s;
-}
+	}
 .fab-button div {
   width: 6px;
   height: 6px;
@@ -180,7 +172,6 @@ hr {
   margin: 29px;
   border-radius: 100%;
   box-shadow: 0 -11px #fff, 0 11px #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff;
-  -webkit-transition: all 0.5s cubic-bezier(0.5, 2, 0.5, 1);
 }
 .fab-button:focus .dot {
   width: 4px;
@@ -231,7 +222,6 @@ hr {
 }
 .fab-options .fab-option * {
   box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-  -webkit-transition: box-shadow 0.2s;
 }
 .fab-options .fab-option:hover * {
   box-shadow: 0 2px 8px rgba(0,0,0,0.7);
@@ -258,8 +248,8 @@ hr {
 
 </style>
 <body>
-<a class="fab-button green" href="#">
-  <div id="plusButton" class="plus"></div>
+<a id="plusButton" class="fab-button green" href="#">
+  <div class="plus"></div>
 </a>
 <div class="fab-options">
   <a id="createWalletButton" class="fab-option" href="#">
