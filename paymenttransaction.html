@@ -392,6 +392,11 @@ window.onclick = function(event) {
 	    } else {
 		plusbtn.css("transform","" );
 	    }
+	 	if (  $('#plusButton').css( "transform" ) == 'none' ){
+		$('#plusButton').css("transform","rotate(45deg)");
+	    } else {
+		$('#plusButton').css("transform","" );
+	    }
   }
 }
 
