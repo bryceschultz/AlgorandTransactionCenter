@@ -72,10 +72,14 @@ var newTransactionToSameWalletBtn = document.getElementById("newTransactionToSam
           console.log( "My passphrase: " + passphrase )
   }
 
+	
+// Get the main modal
+var modal = document.getElementById("myModal");
+
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
   'use strict'
-
+  modal.style.display = "block";
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   var forms = document.querySelectorAll('.needs-validation')
 
