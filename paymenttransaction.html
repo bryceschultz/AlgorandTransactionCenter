@@ -291,6 +291,7 @@ window.onclick = function(event) {
           event.preventDefault()
           event.stopPropagation()
         } else {
+		  event.preventDefault()
 		  var originWalletAddress = document.getElementById("originWalletAddress").value;
 		  console.log(originWalletAddress);
 		  var originWalletPassphrase = document.getElementById("originWalletPassphrase").value;
