@@ -187,4 +187,7 @@ height:40px;
 .container pre {
   display: inline-block;
   text-align: left;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
  }
