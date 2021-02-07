@@ -16,8 +16,9 @@ window.onload = function(){
   
   
   function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount) {
+	document.getElementById('transactionDetails').style.display = "none";
 	modal.style.display = "block";
-	   $('#loadingStatement').text('Your transaction has been sent to the Algorand network and will be confirmed shortly. Please standby for confirmation.');
+	$('#loadingStatement').text('Your transaction has been sent to the Algorand network and will be confirmed shortly. Please standby for confirmation.');
     var postString = "https://algorandtransactioncenter.herokuapp.com/postTransactionToNewAccount?transactionAmountInAlgos="+transactionAmount+"&originWalletPassphrase="+originWalletPassphrase+"&originWalletAddress="+originWalletAddress+"&destinationWalletEmail="+destinationWalletEmail;    
     var form = new FormData();
     var settings = {
@@ -40,10 +41,13 @@ window.onload = function(){
     $('#confirmationRound').text(respObj.confirmed_round);
 	var transactionLink = 'https://algoexplorer.io/tx/' + respObj.transaction_id;
 	document.getElementById("transactionLink").href=transactionLink;
+	var confirmedRoundLink = 'https://testnet.algoexplorer.io/block/' + respObj.confirmed_round;
+	document.getElementById("confirmedRoundLink").href=confirmedRoundLink;
 	var fromAddressLink = 'https://algoexplorer.io/address/' + respObj.origin_account_id;
-	  document.getElementById("transactionLink").href=fromAddressLink;
+	document.getElementById("fromAddressLink").href=fromAddressLink;
 	var toAddressLink = 'https://algoexplorer.io/address/' + respObj.destination_account_id;
-	  document.getElementById("transactionLink").href=toAddressLink;
+	document.getElementById("toAddressLink").href=toAddressLink;
+	document.getElementById('transactionDetails').style.display = "block";
   });
   }
   
@@ -90,7 +94,6 @@ var modal = document.getElementById("myModal");
           event.preventDefault()
           event.stopPropagation()
         } else {
-		  modal.style.display = "block";
 		  event.preventDefault()
 		  var originWalletAddress = document.getElementById("originWalletAddress").value;
 		  console.log(originWalletAddress);
