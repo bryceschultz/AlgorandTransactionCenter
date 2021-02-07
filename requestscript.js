@@ -30,7 +30,6 @@ var modal = document.getElementById("myModal");
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
   'use strict'
-  modal.style.display = "block";
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   var forms = document.querySelectorAll('.needs-validation')
 
@@ -42,6 +41,7 @@ var modal = document.getElementById("myModal");
           event.preventDefault()
           event.stopPropagation()
         } else {
+		 modal.style.display = "block";
 		  event.preventDefault()
 		    var requestToEmailOrAlgoAddress = document.getElementById("requestToEmailOrAlgoAddress").value;
         console.log(requestToEmailOrAlgoAddress);
