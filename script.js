@@ -34,6 +34,9 @@ plusbtn.onclick = function() {
 	}
 }
 
+  // Get the modal
+var modal = document.getElementById("myModal");
+  
 window.onclick = function(event) {
   if (event.target == modal || event.target == plusbtnmodal || event.target == createwalletmodal || event.target == fundwalletmodal) {
     	modal.style.display = "none";
