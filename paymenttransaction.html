@@ -302,8 +302,8 @@ hr {
 
   <!-- Modal content -->
   <div class="modal-content">
-	  <button class="button">Create Wallet</button>
-	  <button class="button">Fund Wallet</button>
+	  <button id="createWalletButton" class="button">Create Wallet</button>
+	  <button id="fundWalletButton" class="button">Fund Wallet</button>
 	
   </div>
   </div>
@@ -319,6 +319,14 @@ hr {
     <br>
     <h4>Passphrase:</h4>
     <p style="word-wrap:break-word; display:inline-block;" id="passphrase"></p>
+  </div>
+  </div>
+	
+  <!-- The Modal -->
+<div id="fundWalletModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+	<p> Open this link in a new tab and enter your Algorand Address as the 'Target Address': </p><a href="https://bank.testnet.algorand.network/" target="_blank">testnet faucet</a>
   </div>
   </div>
 	
@@ -402,11 +410,12 @@ createwalletbtn.onclick = function() {
 }
 	
 var fundwalletbtn = document.getElementById("fundWalletButton");
-
+var fundwalletmodal = document.getElementById("fundWalletModal);
+	
 // When the user clicks on the button, open the modal
 fundwalletbtn.onclick = function() {
-	console.log('fund wallet button has fired')
-
+	console.log('fund wallet button has fired');
+	fundwalletmodal.style.display = "block";
 }
 
 var plusbtn = document.getElementById("plusButton");
