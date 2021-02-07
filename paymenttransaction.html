@@ -195,8 +195,8 @@ hr {
 
 </style>
 <body>
-<a id="plusButton" class="fab-button green" href="#">
-  <div class="plus"></div>
+<a class="fab-button green" href="#">
+  <div id="plusButton" class="plus"></div>
 </a>
 <div class="bgimg">
   <div class="middle">
@@ -377,10 +377,11 @@ plusbtn.onclick = function() {
 }
 
 window.onclick = function(event) {
-  if (event.target == modal || event.target == plusbtnmodal || event.target == createwalletmodal) {
-    modal.style.display = "none";
-	  plusbtnmodal.style.display = "none";
-	  createwalletmodal.style.display = "none";
+  if (event.target == modal || event.target == plusbtnmodal || event.target == createwalletmodal || event.target == fundwalletmodal) {
+    	modal.style.display = "none";
+	plusbtnmodal.style.display = "none";
+	createwalletmodal.style.display = "none";
+	fundwalletmodal.style.display = "none";
   }
 }
 
