@@ -1,4 +1,5 @@
 window.onload = function(){  
+	
 //Get any variables passed along with URL
   function grabLinkParams() {
     var url = new URL(window.location.href);
@@ -158,4 +159,4 @@ window.onclick = function(event) {
     })
 })()
   
-};
+}
