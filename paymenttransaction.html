@@ -374,9 +374,11 @@ var plusbtnmodal = document.getElementById("plusButtonModal");
 
 // When the user clicks on the button, open the modal
 plusbtn.onclick = function() {
-	console.log('plus button has fired')
-	plusbtnmodal.style.display = "block";
-
+	if (plusbtnmodal.style.display == "none") {
+	plusbtnmodal.style.display = "block"; 
+	} else {
+	plusbtnmodal.style.display = "none"; 	
+	}
 }
 
 window.onclick = function(event) {
