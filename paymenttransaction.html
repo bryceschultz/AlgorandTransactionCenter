@@ -248,6 +248,8 @@ height:40px;
   <div class="modal-content">
 	  <button id="createWalletButton" class="button">Create Wallet</button>
 	  <br>
+	  <br>
+	  <br>
 	  <button id="fundWalletButton" class="button">Fund Wallet</button>	
   </div>
   </div>
@@ -385,6 +387,11 @@ window.onclick = function(event) {
 	plusbtnmodal.style.display = "none";
 	createwalletmodal.style.display = "none";
 	fundwalletmodal.style.display = "none";
+	if (  plusbtn.css( "transform" ) == 'none' ){
+		plusbtn.css("transform","rotate(45deg)");
+	    } else {
+		plusbtn.css("transform","" );
+	    }
   }
 }
 
