@@ -192,64 +192,12 @@ hr {
   box-shadow: 0 -12px #fff, 0 -9px #fff, 0 -6px #fff, 0 -3px #fff, 0 0 #fff, 0 -3px #fff, 0 -6px #fff, 0 -9px #fff, 0 -12px #fff, -12px 0 #fff, -9px 0 #fff, -6px 0 #fff, -3px 0 #fff, 0 0 #fff, 3px 0 #fff, 6px 0 #fff, 9px 0 #fff, 12px 0 #fff, 0 12px #fff, 0 9px #fff, 0 6px #fff, 0 3px #fff, 0 0 #fff, 0 3px #fff, 0 6px #fff, 0 9px #fff, 0 12px #fff;
   -webkit-transform: rotate(45deg);
 }
-.fab-button:focus + .fab-options,
-.fab-options:active {
-  width: auto;
-  overflow: initial;
-}
-.fab-options {
-  position: absolute;
-  width: 0;
-  overflow: hidden;
-  z-index: 500;
-  margin: -8px 0 0 20px;
-}
-.fab-options .fab-option {
-  display: table;
-  color: #fff;
-  margin: 8px;
-  text-decoration: none !important;
-}
-.fab-options .fab-option * {
-  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-}
-.fab-options .fab-option:hover * {
-  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
-}
-.fab-options .fab-option p {
-  font-size: 18px;
-  display: inline-block;
-  padding: 6px 8px;
-  margin: 0;
-  background: #424242;
-  position: relative;
-  top: -5px;
-  left: 8px;
-  border-radius: 2px;
-}
-.fab-options .fab-option i {
-  width: 24px;
-  height: 24px;
-  border-radius: 100%;
-  background: #fff;
-  padding: 6px;
-  color: #424242;
-}
 
 </style>
 <body>
 <a id="plusButton" class="fab-button green" href="#">
   <div class="plus"></div>
 </a>
-<div class="fab-options">
-  <a id="createWalletButton" class="fab-option" href="#">
-	  <p>Create Wallet</p>
-  </a>
-<a id="fundWalletButton" class="fab-option" href="#">
-	<p>Fund Wallet</p>
-  </a>
-</div>
-<div class="fab-shadow"></div>
 <div class="bgimg">
   <div class="middle">
     <h2>From</h2>
