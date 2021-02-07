@@ -258,7 +258,7 @@ hr {
 
 </style>
 <body>
-<a class="fab-button green" href="#">
+<a id="plusButton" class="fab-button green" href="#">
   <div class="plus"></div>
 </a>
 <div class="fab-options">
@@ -317,6 +317,28 @@ hr {
   </div>
   </div>
     
+  <!-- The Modal -->
+<div id="plusButtonModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <h4>Transaction Details:</h4>
+    <h5>Transaction ID: </h5><p id="transactionId"></p>
+    <h5>Confirmed in Round: </h5><p id="confirmationRound"></p>
+    <h5>From: </h5><p id="originAccountId"></p>
+    <h5>To: </h5><p id="destinationAccountId"></p>
+    <br>
+    <button id="newTransactionToSameWallet" class="button" width="60" height="100">New Transaction to Same Email</button>
+    <br>
+    <a id="modalLink" href="paymenttransactiontowallet.html">
+    <button id="newTransactionToNewWallet" class="button" width="60" height="100">New Transaction to New Email</button>
+    </a>
+    <br>
+    <a id="modalLink" href="index.html">
+    <button id="goHome" class="button" width="60" height="100">Home</button>
+    </a>
+  </div>
+  </div>
   </div>
 </div>
   
@@ -386,18 +408,28 @@ btn.onclick = function() {
   var transactionResult = sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount);
 }
 
-var btn = document.getElementById("createWalletButton");
+var createwalletbtn = document.getElementById("createWalletButton");
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
+createwalletbtn.onclick = function() {
 	console.log('create wallet button has fired')
 }
 	
-var btn = document.getElementById("fundWalletButton");
+var fundwalletbtn = document.getElementById("fundWalletButton");
+
+// When the user clicks on the button, open the modal
+fundwalletbtn.onclick = function() {
+	console.log('fund wallet button has fired')
+
+}
+
+var plusbtn = document.getElementById("plusButton");
+var plusbtnmodal = document.getElementById("plusButtonModal");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
 	console.log('fund wallet button has fired')
+	plusbtnmodal.style.display = "block";
 
 }
   
