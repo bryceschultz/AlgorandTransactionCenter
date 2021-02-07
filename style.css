@@ -191,3 +191,9 @@ height:40px;
   word-wrap: break-word;
   text-align: justify;
  }
+
+@media screen and (max-width: 1024px) {
+    .yourClass {
+        display: none !important;
+    }
+}
