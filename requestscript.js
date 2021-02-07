@@ -1,5 +1,5 @@
 window.onload = function(){  
-  
+	
   function sendRequest(requestToEmailOrAlgoAddress, requestFromEmail, transactionAmount, requestNote) {
     var postString = "https://algorandtransactioncenter.herokuapp.com/postRequestTransaction?transactionAmountInAlgos="+transactionAmount+"&requestToEmailOrAlgoAddress="+requestToEmailOrAlgoAddress+"&requestFromEmail="+requestFromEmail+"&requestNote="+requestNote;    
     var form = new FormData();
@@ -24,11 +24,13 @@ window.onload = function(){
   });
   }
 
-
+// Get the main modal
+var modal = document.getElementById("myModal");
+	
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
   'use strict'
-  
+  modal.style.display = "block";
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   var forms = document.querySelectorAll('.needs-validation')
 
