@@ -308,7 +308,7 @@ hr {
   </div>
   </div>
   <!-- The Modal -->
-<div id="plusButtonModal" class="modal">
+<div id="createWalletModal" class="modal">
 
   <!-- Modal content -->
   <div class="modal-content">
@@ -390,12 +390,14 @@ btn.onclick = function() {
   var transactionResult = sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount);
 }
 
+var createwalletmodal = document.getElementById("createWalletModal");
 var createwalletbtn = document.getElementById("createWalletButton");
 
 // When the user clicks on the button, open the modal
 createwalletbtn.onclick = function() {
 	console.log('create wallet button has fired');
 	makeNewOriginWallet();
+	createwalletmodal.style.display = "block";
 }
 	
 var fundwalletbtn = document.getElementById("fundWalletButton");
