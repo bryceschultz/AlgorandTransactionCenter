@@ -7,7 +7,88 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="style.css">
 <body>
+<div class="bgimg">
+<a id="plusButton" class="fab-button green" href="#">
+  <div class="plus"></div>
+</a>
+	<div class="container">
+	<pre class=>
+__________                                     __   
+\______   \ ____  ________ __   ____   _______/  |_ 
+ |       _// __ \/ ____/  |  \_/ __ \ /  ___/\   __\
+ |    |   \  ___< <_|  |  |  /\  ___/ \___ \  |  |  
+ |____|_  /\___  >__   |____/  \___  >____  > |__|  
+        \/     \/   |__|           \/     \/        
+	</pre>
+	</div>
+	<br><br>
+  <div class="middle">
+	  <form class="row g-3 needs-validation" novalidate>
+<div class="col-md-2">
+	<p><strong>Request</strong></p>
+		  </div>
+  <div class="col-md-7">
+    <label for="validationCustom03" class="form-label">Algos/label>
+    <input id="transactionAmount" type="text" class="form-control" id="validationCustom03" required>
+    <div class="invalid-feedback">
+     Please provide a valid amount (above 0.1 algos).
+    </div>
+  </div>
+  <div class="col-md-3">
+  </div>
+<div class="col-md-2">
+	<p><strong>From</strong></p>
+		  </div>
+  <div class="col-md-7">
+    <label for="validationCustom03" class="form-label">Request from this email address/label>
+    <input id="requestFromEmail" type="text" class="form-control" id="validationCustom03" required>
+    <div class="invalid-feedback">
+      Please provide a valid email address.
+    </div>
+  </div>
+  <div class="col-md-3">
+  </div>
+<div class="col-md-2">
+	<p><strong>To</strong></p>
+		  </div>
+<div class="col-md-7">
+    <label for="validationCustom03" class="form-label">Fulfill request to this email or algorand address</label>
+    <input id="requestToEmailOrAlgoAddress" type="text" class="form-control" id="validationCustom03" required>
+    <div class="invalid-feedback">
+      Please provide a valid algorand address or email address.
+    </div>
+  </div>
+	<div class="col-md-3">
+	</div>
+  <div class="col-md-2">
+	<p><strong>Note</strong></p>
+		  </div>
+<div class="col-md-7">
+    <label for="validationCustom03" class="form-label">What's the request for?</label>
+  <textarea id="requestNote" type="text" class="form-control" id="validationCustom03"></textarea>
+    <div class="invalid-feedback">
+      Please add a note to the request.
+    </div>
+  </div>
+	<div class="col-md-3">
+	</div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+      <label class="form-check-label" for="invalidCheck">
+        Agree to terms and conditions
+      </label>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <button id="submitTransaction" class="btn btn-success" type="submit">Submit request</button>
+  </div>
+</form>
 
+  </div>
 <div class="bgimg">
   <div class="middle">
     <h2>Request</h2>
@@ -72,21 +153,39 @@ var modal = document.getElementById("myModal");
   });
   }
 
-var btn = document.getElementById("submitRequest");
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
   modal.style.display = "block";
-  var requestToEmailOrAlgoAddress = document.getElementById("requestToEmailOrAlgoAddress").value;
-  console.log(requestToEmailOrAlgoAddress);
-  var requestFromEmail = document.getElementById("requestFromEmail").value;
-  console.log(requestFromEmail);
-  var transactionAmount = document.getElementById("transactionAmount").value;
-  console.log(transactionAmount);
-  var requestNote = document.getElementById("requestNote").value;
-  console.log(requestNote);
-  var transactionResult = sendRequest(requestToEmailOrAlgoAddress, requestFromEmail, transactionAmount, requestNote);
-}
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        } else {
+		  event.preventDefault()
+		    var requestToEmailOrAlgoAddress = document.getElementById("requestToEmailOrAlgoAddress").value;
+        console.log(requestToEmailOrAlgoAddress);
+        var requestFromEmail = document.getElementById("requestFromEmail").value;
+        console.log(requestFromEmail);
+        var transactionAmount = document.getElementById("transactionAmount").value;
+        console.log(transactionAmount);
+        var requestNote = document.getElementById("requestNote").value;
+        console.log(requestNote);
+        var transactionResult = sendRequest(requestToEmailOrAlgoAddress, requestFromEmail, transactionAmount, requestNote);
+	}
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+  
   
 </script>
 </body>
