@@ -1,9 +1,5 @@
 window.onload = function(){  
   
-  // Get the modal
-var modal = document.getElementById("myModal");
-  
-  
   function sendRequest(requestToEmailOrAlgoAddress, requestFromEmail, transactionAmount, requestNote) {
     var postString = "https://algorandtransactioncenter.herokuapp.com/postRequestTransaction?transactionAmountInAlgos="+transactionAmount+"&requestToEmailOrAlgoAddress="+requestToEmailOrAlgoAddress+"&requestFromEmail="+requestFromEmail+"&requestNote="+requestNote;    
     var form = new FormData();
