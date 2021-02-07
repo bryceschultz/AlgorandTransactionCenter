@@ -15,10 +15,6 @@ window.onload = function(){
   window.onload = grabLinkParams;
   
   
-  // Get the modal
-var modal = document.getElementById("myModal");
-  
-  
   function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount) {
 	modal.style.display = "block";
 	   $('#loadingStatement').text('Your transaction has been sent to the Algorand network and will be confirmed shortly. Please standby for confirmation.');
