@@ -193,21 +193,6 @@ var newTransactionToSameWalletBtn = document.getElementById("newTransactionToSam
  newTransactionToSameWalletBtn.onclick = function() {
    modal.style.display = "none";
  }
-  
-var btn = document.getElementById("submitTransaction");
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  var originWalletAddress = document.getElementById("originWalletAddress").value;
-  console.log(originWalletAddress);
-  var originWalletPassphrase = document.getElementById("originWalletPassphrase").value;
-  console.log(originWalletPassphrase);
-  var destinationWalletEmail = document.getElementById("destinationWalletEmail").value;
-  console.log(destinationWalletEmail);
-  var transactionAmount = document.getElementById("transactionAmount").value;
-  console.log(transactionAmount);
-  var transactionResult = sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount);
-}
 
 var createwalletmodal = document.getElementById("createWalletModal");
 var createwalletbtn = document.getElementById("createWalletButton");
@@ -294,7 +279,17 @@ window.onclick = function(event) {
         if (!form.checkValidity()) {
           event.preventDefault()
           event.stopPropagation()
-        }
+        } else {
+		  var originWalletAddress = document.getElementById("originWalletAddress").value;
+		  console.log(originWalletAddress);
+		  var originWalletPassphrase = document.getElementById("originWalletPassphrase").value;
+		  console.log(originWalletPassphrase);
+		  var destinationWalletEmail = document.getElementById("destinationWalletEmail").value;
+		  console.log(destinationWalletEmail);
+		  var transactionAmount = document.getElementById("transactionAmount").value;
+		  console.log(transactionAmount);
+		  var transactionResult = sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount);
+	}
 
         form.classList.add('was-validated')
       }, false)
