@@ -193,7 +193,7 @@ height:40px;
  }
 
 @media screen and (max-width: 1024px) {
-    .yourClass {
+    .sendOrRequestLogoArt {
         display: none !important;
     }
 }
