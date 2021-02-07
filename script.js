@@ -1,3 +1,5 @@
+window.onload = function(){  
+
 var createwalletmodal = document.getElementById("createWalletModal");
 var createwalletbtn = document.getElementById("createWalletButton");
 
@@ -48,4 +50,6 @@ window.onclick = function(event) {
 		$('#plusButton').css("transform","" );
 	    }
   }
+}
+
 }
