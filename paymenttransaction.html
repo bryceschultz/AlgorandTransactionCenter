@@ -40,11 +40,12 @@
 
   <!-- Modal content -->
   <div class="modal-content">
+	  <p id="loadingStatement"></p>
     <h4>Transaction Details:</h4>
-    <h5>Transaction ID: </h5><p id="transactionId"></p>
-    <h5>Confirmed in Round: </h5><p id="confirmationRound"></p>
-    <h5>From: </h5><p id="originAccountId"></p>
-    <h5>To: </h5><p id="destinationAccountId"></p>
+	  <h5>Transaction ID: </h5><p id="transactionId"></p><a href="" id"transactionLink">More Details</a>
+<h5>Confirmed in Round: </h5><p id="confirmationRound"></p>
+	  <h5>From: </h5><p id="originAccountId"></p><a href="" id"fromAddressLink">More deatils</a>
+	  <h5>To: </h5><p id="destinationAccountId"></p><a href="" id"toAddressLink">More details</a>
     <br>
     <button id="newTransactionToSameWallet" class="button" width="60" height="100">New Transaction to Same Email</button>
     <br>
@@ -118,6 +119,8 @@ var modal = document.getElementById("myModal");
   
   
   function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount) {
+	modal.style.display = "block";
+	   $('#loadingStatement').text('Your transaction has been sent to the Algorand network and will be confirmed shortly. Please standby for confirmation.);
     var postString = "https://algorandtransactioncenter.herokuapp.com/postTransactionToNewAccount?transactionAmountInAlgos="+transactionAmount+"&originWalletPassphrase="+originWalletPassphrase+"&originWalletAddress="+originWalletAddress+"&destinationWalletEmail="+destinationWalletEmail;    
     var form = new FormData();
     var settings = {
@@ -138,7 +141,12 @@ var modal = document.getElementById("myModal");
     $('#originAccountId').text(respObj.origin_account_id);
     $('#destinationAccountId').text(respObj.destination_account_id);
     $('#confirmationRound').text(respObj.confirmed_round);
-    modal.style.display = "block";
+	var transactionLink = 'https://algoexplorer.io/tx/' + respObj.transaction_id;
+	document.getElementById("transactionLink").href=transactionLink;
+	var fromAddressLink = 'https://algoexplorer.io/address/' + respObj.origin_account_id;
+	  document.getElementById("transactionLink").href=fromAddressLink;
+	var toAddressLink = 'https://algoexplorer.io/address/' + respObj.destination_account_id;
+	  document.getElementById("transactionLink").href=toAddressLink;
   });
   }
   
