@@ -1,4 +1,5 @@
-  //Get any variables passed along with URL
+window.onload = function(){  
+//Get any variables passed along with URL
   function grabLinkParams() {
     var url = new URL(window.location.href);
     var fulfillRequestTo = url.searchParams.get("fulfillRequestTo");
@@ -157,3 +158,4 @@ window.onclick = function(event) {
     })
 })()
   
+};
