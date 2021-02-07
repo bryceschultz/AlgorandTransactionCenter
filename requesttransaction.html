@@ -99,8 +99,46 @@ __________                                     __
   </div>
   </div>
     
+	
+  <!-- The Modal -->
+<div id="plusButtonModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+	  <button id="createWalletButton" class="button">Create Wallet</button>
+	  <br>
+	  <br>
+	  <br>
+	  <button id="fundWalletButton" class="button">Fund Wallet</button>	
+  </div>
+  </div>
+  <!-- The Modal -->
+<div id="createWalletModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+	<p> Save your algorand address and passphrase somewhere safe as you will need these for each transaction you want to make</p>
+    <h4>Algorand Address:</h4>
+    <p style="overflow:scroll;" id="walletId"></p>
+    <br>
+    <br>
+    <h4>Passphrase:</h4>
+    <p style="word-wrap:break-word; display:inline-block;" id="passphrase"></p>
+  </div>
+  </div>
+	
+  <!-- The Modal -->
+<div id="fundWalletModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+	<p> Open this link in a new tab and enter your Algorand Address as the 'Target Address': </p><a href="https://bank.testnet.algorand.network/" target="_blank">testnet faucet</a>
+  </div>
+  </div>
+	
   </div>
 </div>
+
+
   <br><br><br> 
 <script>  
   
