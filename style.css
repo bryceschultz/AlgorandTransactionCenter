@@ -174,7 +174,7 @@ height:40px;
   text-align: justify;
  }
 
-@media screen and (max-width: 1024px;max-height: 1024px) {
+@media screen and (max-width: 1024px) and (max-height: 1024px) {
     .sendOrRequestLogoArt {
         display: none !important;
     }
