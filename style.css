@@ -92,25 +92,7 @@ height:40px;
 	width: 20%;
 	height : 100px;
 	}
-	
-@media (max-width: 800px) {
-  /* CSS that should be displayed if width is equal to or less than 800px goes here */
-	.floating-button-top1 {
-  	top: 5%;
-	right: 5%;
-	background-color: #d1ffd1;
-	width: 20%;
-	height : 70px;
-	}
-.floating-button-top2 {
-  	top: 20%;
-	right: 5%;
-	background-color: #a6ffa6;
-	width: 20%;
-	height : 70px;
-	}
-}
-/*--------- END --------*/
+
 [class*="fab"] {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -192,7 +174,7 @@ height:40px;
   text-align: justify;
  }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px;max-height: 1024px) {
     .sendOrRequestLogoArt {
         display: none !important;
     }
