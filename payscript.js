@@ -39,13 +39,13 @@ window.onload = function(){
     $('#originAccountId').text(respObj.origin_account_id);
     $('#destinationAccountId').text(respObj.destination_account_id);
     $('#confirmationRound').text(respObj.confirmed_round);
-	var transactionLink = 'https://algoexplorer.io/tx/' + respObj.transaction_id;
+	var transactionLink = 'https://testnet.algoexplorer.io/tx/' + respObj.transaction_id;
 	document.getElementById("transactionLink").href=transactionLink;
 	var confirmedRoundLink = 'https://testnet.algoexplorer.io/block/' + respObj.confirmed_round;
 	document.getElementById("confirmedRoundLink").href=confirmedRoundLink;
-	var fromAddressLink = 'https://algoexplorer.io/address/' + respObj.origin_account_id;
+	var fromAddressLink = 'https://testnet.algoexplorer.io/' + respObj.origin_account_id;
 	document.getElementById("fromAddressLink").href=fromAddressLink;
-	var toAddressLink = 'https://algoexplorer.io/address/' + respObj.destination_account_id;
+	var toAddressLink = 'https://testnet.algoexplorer.io/address/' + respObj.destination_account_id;
 	document.getElementById("toAddressLink").href=toAddressLink;
 	$('#loadingStatement').style.display = "none";
 	document.getElementById('transactionDetails').style.display = "block";
