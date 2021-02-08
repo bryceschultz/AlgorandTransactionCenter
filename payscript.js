@@ -50,12 +50,6 @@ window.onload = function(){
 	document.getElementById('transactionDetails').style.display = "block";
   });
   }
-  
-var newTransactionToSameWalletBtn = document.getElementById("newTransactionToSameWallet");  
- newTransactionToSameWalletBtn.onclick = function() {
-   modal.style.display = "none";
- }
-
 
   const baseServer = 'https://testnet-algorand.api.purestake.io/ps2'
   const port = '';
