@@ -116,6 +116,7 @@ height:40px;
 .fab-button {
   	top: 5%;
 	left: 5%;
+	z-index: 1;
   width: 64px;
   height: 64px;
   border-radius: 100%;
