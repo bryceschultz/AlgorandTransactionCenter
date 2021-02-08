@@ -7,6 +7,10 @@ pre {
     color: #157347;
 }
 
+form {
+background-color: white;	
+}
+
 .bgimg {
   height: 100%;
   background-position: center;
