@@ -81,19 +81,41 @@
   <div class="modal-content">
 	  <p id="loadingStatement"></p>
 	  <div id="transactionDetails">
-	  <h5>Transaction ID: </h5><p id="transactionId"></p><a href="" id="transactionLink" target="_blank">More Details</a>
-<h5>Confirmed in Round: </h5><p id="confirmationRound"></p><a href="" id="confirmedRoundLink" target="_blank">More deatils</a>
-	  <h5>From: </h5><p id="originAccountId"></p><a href="" id="fromAddressLink" target="_blank">More deatils</a>
-	  <h5>To: </h5><p id="destinationAccountId"></p><a href="" id="toAddressLink" target="_blank">More details</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Transaction</th>
+      <th scope="col">Block</th>
+      <th scope="col">From</th>
+      <th scope="col">To</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row" id="transactionId"></th>
+      <td id="confirmationRound"></td>
+      <td id="originAccountId"></td>
+      <td id="destinationAccountId"></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="" id="transactionLink" target="_blank">More Details</a></th>
+      <td><a href="" id="confirmedRoundLink" target="_blank">More deatils</a></td>
+      <td><a href="" id="fromAddressLink" target="_blank">More deatils</a></td>
+      <td><a href="" id="toAddressLink" target="_blank">More details</a></td>
+    </tr>
+  </tbody>
+</table>
     <br>
-    <button class="button btn btn-success" width="60" height="100">Home</button>
-    <br>
-    <a id="modalLink" href="paymenttransaction.html">
-    <button class="button btn btn-success" width="60" height="100">New Payment</button>
+    <a id="modalLink" href="https://sendalgo.com">
+    <button class="button btn btn-success">Home</button>
     </a>
     <br>
-    <a id="modalLink" href="requesttransaction.html">
-    <button class="button btn btn-success" width="60" height="100">New Request/button>
+    <a id="modalLink" href="https://sendalgo.com/paymenttransaction.html">
+    <button class="button btn btn-success">New Payment</button>
+    </a>
+    <br>
+    <a id="modalLink" href="https://sendalgo.com/requesttransaction.html">
+    <button class="button btn btn-success">New Request</button>
     </a>
   </div>
   </div>
