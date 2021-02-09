@@ -1,4 +1,4 @@
-# Algorand Transaction Center
+# AlgorandTransactionCenter
 
 ## Usage
 To interact with the existing application you can go to https://sendalgo.com where the application is hosted via github pages.
