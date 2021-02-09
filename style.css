@@ -12,7 +12,7 @@ form {
     background-color: white;
 }
 
-.bgimg {
+.centered-main-content {
     height: 100%;
     background-position: center;
     background-size: cover;
@@ -20,18 +20,6 @@ form {
     color: black;
     font-family: "Courier New", Courier, monospace;
     font-size: 16px;
-}
-
-.topleft {
-    position: absolute;
-    top: 0;
-    left: 16px;
-}
-
-.bottomleft {
-    position: absolute;
-    bottom: 0;
-    left: 16px;
 }
 
 .middle {
