@@ -19,6 +19,7 @@ window.onload = function () {
     var createwalletmodal = document.getElementById("createWalletModal");
     var fundwalletbtn = document.getElementById("fundWalletButton");
     var fundwalletmodal = document.getElementById("fundWalletModal");
+    var modal = document.getElementById("myModal");
 
     // When the user clicks on the button, open the modal
     plusbtn.onclick = function () {
