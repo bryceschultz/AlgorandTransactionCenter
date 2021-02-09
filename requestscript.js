@@ -20,7 +20,7 @@ window.onload = function(){
   $.ajax(settings).done(function (response) {
     console.log(response);
     var respObj = JSON.parse(response);
-    $('#emailSent').text('Request has been sent to: ' + requestFromEmail);
+    $('#successStatement').text('Transaction Successful.  Your request has been sent to: ' + requestFromEmail);
     document.getElementById('loadingGif').style.display = "none";
     document.getElementById('loadingStatement').style.display = "none";
     document.getElementById('newTransactionButtons').style.display = "block";
