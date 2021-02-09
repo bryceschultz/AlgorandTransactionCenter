@@ -11,8 +11,6 @@ window.onload = function () {
         var passphrase = algosdk.secretKeyToMnemonic(account.sk);
         document.getElementById("walletId").innerHTML = account.addr;
         document.getElementById("passphrase").innerHTML = passphrase;
-        console.log("My address: " + account.addr);
-        console.log("My passphrase: " + passphrase);
     }
 
     var plusbtn = document.getElementById("plusButton");
@@ -37,7 +35,6 @@ window.onload = function () {
 
     // When the user clicks on the button, open the modal
     createwalletbtn.onclick = function () {
-        console.log("create wallet button has fired");
         makeNewOriginWallet();
         createwalletmodal.style.display = "block";
     };
@@ -47,7 +44,6 @@ window.onload = function () {
 
     // When the user clicks on the button, open the modal
     fundwalletbtn.onclick = function () {
-        console.log("fund wallet button has fired");
         fundwalletmodal.style.display = "block";
     };
     // Get the modal
@@ -59,9 +55,7 @@ window.onload = function () {
             plusbtnmodal.style.display = "none";
             createwalletmodal.style.display = "none";
             fundwalletmodal.style.display = "none";
-            console.log("window.onclick has fired");
             if ($("#plusButton").css("transform") == "none") {
-                console.log("$#plusButton.css if has fired");
                 $("#plusButton").css("transform", "rotate(45deg)");
             } else {
                 $("#plusButton").css("transform", "");
