@@ -1,4 +1,13 @@
 window.onload = function () {
+    function makeNewOriginWallet() {
+        var account = algosdk.generateAccount();
+        var passphrase = algosdk.secretKeyToMnemonic(account.sk);
+        document.getElementById("walletId").innerHTML = account.addr;
+        document.getElementById("passphrase").innerHTML = passphrase;
+        console.log("My address: " + account.addr);
+        console.log("My passphrase: " + passphrase);
+    }
+
     var plusbtn = document.getElementById("plusButton");
     var plusbtnmodal = document.getElementById("plusButtonModal");
 
