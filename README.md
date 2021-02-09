@@ -16,3 +16,4 @@ The 3 main functionalities of the Algorand Transaction Center are as follows:
 2. Allow a user to send a payment from their Algorand address to another users email (an Algorand address is created at the time of transaction and sent to the receiving user).
 3. Allow a user to send a request for payment to another user via email.
 
+## Functionality 1. pay an exisitng Algorand address
