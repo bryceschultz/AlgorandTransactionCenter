@@ -6,9 +6,9 @@ To interact with the existing application you can go to https://sendalgo.com whe
 The application attemps to make it incredibly simple for a first time user to send transactions over the Algorand TestNet.
 
 The application can also be forked and built upon by another user wishing to develop it further using the below cmd:
-''''
+````
 $ git clone https://github.com/bryceschultz/AlgorandTransactionCenter
-''''
+````
 
 ## Functionalities
 The 3 main functionalities of the Algorand Transaction Center are as follows:
