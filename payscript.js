@@ -17,6 +17,7 @@ window.onload = function(){
   
   function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount) {
 	document.getElementById('transactionDetails').style.display = "none";
+        document.getElementById('errorButton').style.display = "none";
 	document.getElementById('loadingGif').style.display = "block";
 	modal.style.display = "block";
 	$('#loadingStatement').text('Your transaction has been sent to the Algorand network and will be confirmed shortly. Please standby for confirmation.');
@@ -48,7 +49,6 @@ window.onload = function(){
 	    document.getElementById("fromAddressLink").href=fromAddressLink;
 	    var toAddressLink = 'https://testnet.algoexplorer.io/address/' + respObj.destination_account_id;
 	    document.getElementById("toAddressLink").href=toAddressLink;
-	    document.getElementById('errorButton').style.display = "none";
 	    document.getElementById("loadingStatement").style.display = "none";
 	    document.getElementById('loadingGif').style.display = "none";
 	    document.getElementById('transactionDetails').style.display = "block";
