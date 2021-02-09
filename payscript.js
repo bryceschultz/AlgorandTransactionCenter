@@ -35,7 +35,7 @@ window.onload = function(){
   $.ajax(settings).done(function (response) {
     console.log(response);
     var respObj = JSON.parse(response);
-	if (respObj.transaction_success == true) {
+	try {
     $('#intercept').text(respObj.Intercept);
     $('#transactionId').text(respObj.transaction_id);
     $('#originAccountId').text(respObj.origin_account_id);
@@ -52,7 +52,8 @@ window.onload = function(){
 	document.getElementById("loadingStatement").style.display = "none";
 	document.getElementById('loadingGif').style.display = "none";
 	document.getElementById('transactionDetails').style.display = "block";
-	} else {
+	} catch(err) {
+	document.getElementById('loadingGif').style.display = "none";
 	$('#loadingStatement').text('This transaction was not able to be confirmed by the Algorand network. Please double check your inputs and try again.');
 	}
   });
