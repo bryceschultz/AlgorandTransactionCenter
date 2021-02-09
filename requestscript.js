@@ -16,13 +16,16 @@ window.onload = function(){
   $.ajax(settings).done(function (response) {
     console.log(response);
     var respObj = JSON.parse(response);
-    if (respObj.emailSent == true) {
-      $('#emailSent').text('Request has been sent to: ' + requestFromEmail);
-    } else {
-      $('#emailSent').text('We were not able to send the email. Please reload the page and try again.');
-    }
+    $('#emailSent').text('Request has been sent to: ' + requestFromEmail);
+})
+.fail(function (jqXHR, textStatus, errorThrown) {
+		console.log(errorThrown);
+		document.getElementById('loadingGif').style.display = "none";
+	  	document.getElementById('loadingStatement').style.display = "none";
+	        document.getElementById('errorButton').style.display = "block";
+		$('#errorStatement').text('We were not able to send the request email. Please double check your inputs and try again.');
   });
-  }
+};
 
 // Get the main modal
 var modal = document.getElementById("myModal");
