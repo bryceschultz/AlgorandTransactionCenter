@@ -3,11 +3,9 @@ window.onload = function () {
     function grabLinkParams() {
         var url = new URL(window.location.href);
         var fulfillRequestTo = url.searchParams.get("fulfillRequestTo");
-        console.log(fulfillRequestTo);
         $("#destinationWalletEmail").val(fulfillRequestTo);
         var fulfillRequestAmount = url.searchParams.get("fulfillRequestAmount");
         $("#transactionAmount").val(fulfillRequestAmount);
-        console.log(fulfillRequestAmount);
     }
 
     //Calling function on page load
@@ -41,7 +39,6 @@ window.onload = function () {
 
         $.ajax(settings)
             .done(function (response) {
-                console.log(response);
                 var respObj = JSON.parse(response);
                 $("#intercept").text(respObj.Intercept);
                 $("#transactionId").text(respObj.transaction_id);
@@ -97,16 +94,11 @@ window.onload = function () {
                     } else {
                         event.preventDefault();
                         var originWalletAddress = document.getElementById("originWalletAddress").value;
-                        console.log(originWalletAddress);
                         var originWalletPassphrase = document.getElementById("originWalletPassphrase").value;
-                        console.log(originWalletPassphrase);
                         var destinationWalletEmail = document.getElementById("destinationWalletEmail").value;
-                        console.log(destinationWalletEmail);
                         var transactionAmount = document.getElementById("transactionAmount").value;
-                        console.log(transactionAmount);
                         var transactionResult = sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount);
                     }
-
                     form.classList.add("was-validated");
                 },
                 false
