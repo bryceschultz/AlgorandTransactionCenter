@@ -19,7 +19,7 @@ window.onload = function () {
     var createwalletmodal = document.getElementById("createWalletModal");
     var fundwalletbtn = document.getElementById("fundWalletButton");
     var fundwalletmodal = document.getElementById("fundWalletModal");
-    
+
     // When the user clicks on the button, open the modal
     plusbtn.onclick = function () {
         if ($(this).css("transform") == "none") {
@@ -45,5 +45,18 @@ window.onload = function () {
     // When the user clicks on the button, open the modal
     fundwalletbtn.onclick = function () {
         fundwalletmodal.style.display = "block";
+    };
+    window.onclick = function (event) {
+        if (event.target == modal || event.target == plusbtnmodal || event.target == createwalletmodal || event.target == fundwalletmodal) {
+            modal.style.display = "none";
+            plusbtnmodal.style.display = "none";
+            createwalletmodal.style.display = "none";
+            fundwalletmodal.style.display = "none";
+            if ($("#plusButton").css("transform") == "none") {
+                $("#plusButton").css("transform", "rotate(45deg)");
+            } else {
+                $("#plusButton").css("transform", "");
+            }
+        }
     };
 };
