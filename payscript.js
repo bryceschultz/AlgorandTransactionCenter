@@ -33,31 +33,31 @@ window.onload = function(){
   };
 
   $.ajax(settings).done(function (response) {
-    console.log(response);
-    var respObj = JSON.parse(response);
-    $('#intercept').text(respObj.Intercept);
-    $('#transactionId').text(respObj.transaction_id);
-    $('#originAccountId').text(respObj.origin_account_id);
-    $('#destinationAccountId').text(respObj.destination_account_id);
-    $('#confirmationRound').text(respObj.confirmed_round);
-	var transactionLink = 'https://testnet.algoexplorer.io/tx/' + respObj.transaction_id;
-	document.getElementById("transactionLink").href=transactionLink;
-	var confirmedRoundLink = 'https://testnet.algoexplorer.io/block/' + respObj.confirmed_round;
-	document.getElementById("confirmedRoundLink").href=confirmedRoundLink;
-	var fromAddressLink = 'https://testnet.algoexplorer.io/address/' + respObj.origin_account_id;
-	document.getElementById("fromAddressLink").href=fromAddressLink;
-	var toAddressLink = 'https://testnet.algoexplorer.io/address/' + respObj.destination_account_id;
-	document.getElementById("toAddressLink").href=toAddressLink;
-	document.getElementById("loadingStatement").style.display = "none";
-	document.getElementById('loadingGif').style.display = "none";
-	document.getElementById('transactionDetails').style.display = "block";
-	} 
-	error: function () {
-	document.getElementById('loadingGif').style.display = "none";
-	$('#loadingStatement').text('This transaction was not able to be confirmed by the Algorand network. Please double check your inputs and try again.');
-	}
+	    console.log(response);
+	    var respObj = JSON.parse(response);
+	    $('#intercept').text(respObj.Intercept);
+	    $('#transactionId').text(respObj.transaction_id);
+	    $('#originAccountId').text(respObj.origin_account_id);
+	    $('#destinationAccountId').text(respObj.destination_account_id);
+	    $('#confirmationRound').text(respObj.confirmed_round);
+	    var transactionLink = 'https://testnet.algoexplorer.io/tx/' + respObj.transaction_id;
+	    document.getElementById("transactionLink").href=transactionLink;
+	    var confirmedRoundLink = 'https://testnet.algoexplorer.io/block/' + respObj.confirmed_round;
+	    document.getElementById("confirmedRoundLink").href=confirmedRoundLink;
+	    var fromAddressLink = 'https://testnet.algoexplorer.io/address/' + respObj.origin_account_id;
+	    document.getElementById("fromAddressLink").href=fromAddressLink;
+	    var toAddressLink = 'https://testnet.algoexplorer.io/address/' + respObj.destination_account_id;
+	    document.getElementById("toAddressLink").href=toAddressLink;
+	    document.getElementById("loadingStatement").style.display = "none";
+	    document.getElementById('loadingGif').style.display = "none";
+	    document.getElementById('transactionDetails').style.display = "block";
+	})
+	.fail(function (jqXHR, textStatus, errorThrown) {
+		console.log(errorThrown);
+		document.getElementById('loadingGif').style.display = "none";
+		$('#loadingStatement').text('This transaction was not able to be confirmed by the Algorand network. Please double check your inputs and try again.');
   });
-});
+};
 
   const baseServer = 'https://testnet-algorand.api.purestake.io/ps2'
   const port = '';
