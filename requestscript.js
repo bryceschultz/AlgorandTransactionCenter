@@ -55,9 +55,11 @@ window.onload = function () {
         if (!form.checkValidity()) {
           event.preventDefault()
           event.stopPropagation()
+		debugger;
         } else {
 		 modal.style.display = "block";
 		  event.preventDefault()
+		debugger;
 		    var requestToEmailOrAlgoAddress = document.getElementById("requestToEmailOrAlgoAddress").value;
             console.log(requestToEmailOrAlgoAddress);
             var requestFromEmail = document.getElementById("requestFromEmail").value;
