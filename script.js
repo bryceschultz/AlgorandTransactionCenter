@@ -1,22 +1,3 @@
-var createwalletmodal = document.getElementById("createWalletModal");
-var createwalletbtn = document.getElementById("createWalletButton");
-
-// When the user clicks on the button, open the modal
-createwalletbtn.onclick = function() {
-	console.log('create wallet button has fired');
-	makeNewOriginWallet();
-	createwalletmodal.style.display = "block";
-}
-	
-var fundwalletbtn = document.getElementById("fundWalletButton");
-var fundwalletmodal = document.getElementById("fundWalletModal");
-	
-// When the user clicks on the button, open the modal
-fundwalletbtn.onclick = function() {
-	console.log('fund wallet button has fired');
-	fundwalletmodal.style.display = "block";
-}
-
 var plusbtn = document.getElementById("plusButton");
 var plusbtnmodal = document.getElementById("plusButtonModal");
 
@@ -34,6 +15,24 @@ plusbtn.onclick = function() {
 	}
 }
 
+var createwalletbtn = document.getElementById("createWalletButton");
+var createwalletmodal = document.getElementById("createWalletModal");
+
+// When the user clicks on the button, open the modal
+createwalletbtn.onclick = function() {
+	console.log('create wallet button has fired');
+	makeNewOriginWallet();
+	createwalletmodal.style.display = "block";
+}
+	
+var fundwalletbtn = document.getElementById("fundWalletButton");
+var fundwalletmodal = document.getElementById("fundWalletModal");
+	
+// When the user clicks on the button, open the modal
+fundwalletbtn.onclick = function() {
+	console.log('fund wallet button has fired');
+	fundwalletmodal.style.display = "block";
+}
   // Get the modal
 var modal = document.getElementById("myModal");
   
