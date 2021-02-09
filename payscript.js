@@ -72,16 +72,6 @@ window.onload = function(){
   let needToMakeNewDestinationWallet = false;
   let needToMakeNewOriginWallet = false;
 	
-  function makeNewOriginWallet() {
-          var account = algosdk.generateAccount();
-          var passphrase = algosdk.secretKeyToMnemonic(account.sk);
-          document.getElementById("walletId").innerHTML = account.addr;
-          document.getElementById("passphrase").innerHTML = passphrase;
-          console.log( "My address: " + account.addr );
-          console.log( "My passphrase: " + passphrase )
-  }
-
-	
 // Get the main modal
 var modal = document.getElementById("myModal");
 
