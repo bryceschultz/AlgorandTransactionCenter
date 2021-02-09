@@ -55,6 +55,7 @@ window.onload = function(){
 	.fail(function (jqXHR, textStatus, errorThrown) {
 		console.log(errorThrown);
 		document.getElementById('loadingGif').style.display = "none";
+	  	document.getElementById('loadingStatement').style.display = "none";
 	        document.getElementById('errorButton').style.display = "block";
 		$('#errorStatement').text('This transaction was not able to be confirmed by the Algorand network. Please double check your inputs and try again.');
   });
