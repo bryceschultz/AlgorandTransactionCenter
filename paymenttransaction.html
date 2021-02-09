@@ -17,6 +17,19 @@
             }
             gtag("js", new Date());
             gtag("config", "G-9C988ELFKC");
+            window.onclick = function (event) {
+                if (event.target == modal || event.target == plusbtnmodal || event.target == createwalletmodal || event.target == fundwalletmodal) {
+                    modal.style.display = "none";
+                    plusbtnmodal.style.display = "none";
+                    createwalletmodal.style.display = "none";
+                    fundwalletmodal.style.display = "none";
+                    if ($("#plusButton").css("transform") == "none") {
+                        $("#plusButton").css("transform", "rotate(45deg)");
+                    } else {
+                        $("#plusButton").css("transform", "");
+                    }
+                }
+            };
         </script>
     </head>
     <body>
@@ -25,7 +38,8 @@
                 <div class="plus"></div>
             </a>
             <div class="container sendOrRequestLogoArt">
-                <pre>	
+                <pre>
+	
 ░█▀▀▀█ █▀▀ █▀▀▄ █▀▀▄ 
 ─▀▀▀▄▄ █▀▀ █──█ █──█ 
 ░█▄▄▄█ ▀▀▀ ▀──▀ ▀▀▀─
