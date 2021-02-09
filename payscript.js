@@ -73,37 +73,5 @@ window.onload = function () {
     };
 
     const algodClient = new algosdk.Algodv2(token, baseServer, port);
-
-    // Get the main modal
-    var modal = document.getElementById("myModal");
-
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function () {
-        "use strict";
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll(".needs-validation");
-
-        // Loop over them and prevent submission
-        Array.prototype.slice.call(forms).forEach(function (form) {
-            form.addEventListener(
-                "submit",
-                function (event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    } else {
-                        event.preventDefault();
-                        var originWalletAddress = document.getElementById("originWalletAddress").value;
-                        var originWalletPassphrase = document.getElementById("originWalletPassphrase").value;
-                        var destinationWalletEmail = document.getElementById("destinationWalletEmail").value;
-                        var transactionAmount = document.getElementById("transactionAmount").value;
-                        var transactionResult = sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount);
-                    }
-                    form.classList.add("was-validated");
-                },
-                false
-            );
-        });
-    })();
 };
 
