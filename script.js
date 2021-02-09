@@ -46,20 +46,4 @@ window.onload = function () {
     fundwalletbtn.onclick = function () {
         fundwalletmodal.style.display = "block";
     };
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    window.onclick = function (event) {
-        if (event.target == modal || event.target == plusbtnmodal || event.target == createwalletmodal || event.target == fundwalletmodal) {
-            modal.style.display = "none";
-            plusbtnmodal.style.display = "none";
-            createwalletmodal.style.display = "none";
-            fundwalletmodal.style.display = "none";
-            if ($("#plusButton").css("transform") == "none") {
-                $("#plusButton").css("transform", "rotate(45deg)");
-            } else {
-                $("#plusButton").css("transform", "");
-            }
-        }
-    };
 };
