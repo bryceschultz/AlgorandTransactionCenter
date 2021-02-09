@@ -1,4 +1,11 @@
 window.onload = function () {
+    const baseServer = "https://testnet-algorand.api.purestake.io/ps2";
+    const port = "";
+    const token = {
+        "X-API-Key": "cfoNpaCzsF9xJRTOO39rF78aJRbK4fqj4W8LNv6k",
+    };
+
+    const algodClient = new algosdk.Algodv2(token, baseServer, port);
     function makeNewOriginWallet() {
         var account = algosdk.generateAccount();
         var passphrase = algosdk.secretKeyToMnemonic(account.sk);
