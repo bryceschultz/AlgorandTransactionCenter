@@ -1,161 +1,163 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-<script src="algosdk.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="requestscript.js"></script>
-<script src="script.js"></script>
-<link rel="stylesheet" href="style.css">
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9C988ELFKC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-9C988ELFKC');
-</script>
-<body>
-<div class="bgimg">
-<a id="plusButton" class="fab-button green" href="#">
-  <div class="plus"></div>
-</a>
-	<div class="container sendOrRequestLogoArt">
-	<pre>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+        <script src="algosdk.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="requestscript.js"></script>
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="style.css" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9C988ELFKC"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-9C988ELFKC");
+        </script>
+    </head>
+    <body>
+        <div class="bgimg">
+            <a id="plusButton" class="fab-button green" href="#">
+                <div class="plus"></div>
+            </a>
+            <div class="container sendOrRequestLogoArt">
+                <pre>
 	
 ░█▀▀█ █▀▀ █▀▀█ █──█ █▀▀ █▀▀ ▀▀█▀▀ 
 ░█▄▄▀ █▀▀ █──█ █──█ █▀▀ ▀▀█ ──█── 
 ░█─░█ ▀▀▀ ▀▀▀█ ─▀▀▀ ▀▀▀ ▀▀▀ ──▀──
-	</pre>
-	</div>
-	<br><br><br><br>
-  <div class="middle">
-	  <br><br><br><br>
-	  <form class="row g-3 needs-validation" novalidate>
-<div class="col-md-2">
-	<p><strong>Amount</strong></p>
-	</div>
-  <div class="col-md-8">
-    <label for="validationCustom03" class="form-label">Amount in algos</label>
-    <input id="transactionAmount" type="text" class="form-control" id="validationCustom03" required>
-    <div class="invalid-feedback">
-     Please provide a valid amount (above 0.1 algos).
-    </div>
-  </div>
-  <div class="col-md-2">
-  </div>
-<div class="col-md-2">
-	<p><strong>From</strong></p>
-		  </div>
-  <div class="col-md-8">
-    <label for="validationCustom03" class="form-label">Request from</label>
-    <input placeholder="Email address" id="requestFromEmail" type="text" class="form-control" id="validationCustom03" required>
-    <div class="invalid-feedback">
-      Please provide a valid email address.
-    </div>
-  </div>
-  <div class="col-md-2">
-  </div>
-<div class="col-md-2">
-	<p><strong>To</strong></p>
-		  </div>
-<div class="col-md-8">
-    <label for="validationCustom03" class="form-label">Fulfill request to</label>
-    <input placeholder="Email or Algorand Address" id="requestToEmailOrAlgoAddress" type="text" class="form-control" id="validationCustom03" required>
-    <div class="invalid-feedback">
-      Please provide a valid algorand address or email address.
-    </div>
-  </div>
-	<div class="col-md-2">
-	</div>
-  <div class="col-md-2">
-	<p><strong>Note</strong></p>
-		  </div>
-<div class="col-md-8">
-	 <label for="requestNote" class="form-label"></label>
-    <textarea class="form-control" id="requestNote" placeholder="What's the request for?" required></textarea>
-    <div class="invalid-feedback">
-     Please add a note to the request.
-    </div>
-  </div>
-	<div class="col-md-2">
-	</div>
-  <div class="col-12">
-    <button id="submitTransaction" class="btn btn-success" type="submit">Submit request</button>
-  </div>
-</form>
-  </div> 
-  <!-- The Modal -->
-<div id="myModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <p id="loadingStatement"></p>
-    	  <strong><p id="successStatement" style="color:green"></p></strong>
-	  <strong><p id="errorStatement" style="color:red"></p></strong>
-	  <div id="loadingGif" style="width:200px;height:auto;" class="container flex-row justify-content-center"><img src="ajax-loader.gif" alt="loading gif"/></div>
-	  <div id="errorButton">
-		<a href="https://sendalgo.com/requesttransaction.html">
-		    <button class="button btn btn-success">Try New Request Transaction</button>
-		</a>  
-	  </div>
-		  <div id="newTransactionButtons">
-		    <a href="https://sendalgo.com">
-		    <button style="margin-bottom:20px;" class="button btn btn-success">Home</button>
-		    </a>
-		    <a href="https://sendalgo.com/paymenttransaction.html">
-		    <button style="margin-bottom:20px;" class="button btn btn-success">New Payment</button>
-		    </a>
-		    <a href="https://sendalgo.com/requesttransaction.html">
-		    <button class="button btn btn-success">New Request</button>
-		    </a>
-		  </div>
-  
-  </div>
-  </div>
-    
-	
-  <!-- The Modal -->
-<div id="plusButtonModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-	  <button id="createWalletButton" class="button btn btn-success">Create Wallet</button>
-	  <br>
-	  <br>
-	  <br>
-	  <button id="fundWalletButton" class="button btn btn-success">Fund Wallet</button>	
-  </div>
-  </div>
-  <!-- The Modal -->
-<div id="createWalletModal" class="modal">
+                </pre>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="middle">
+                <br />
+                <br />
+                <br />
+                <br />
+                <form class="row g-3 needs-validation" novalidate>
+                    <div class="col-md-2">
+                        <p><strong>Amount</strong></p>
+                    </div>
+                    <div class="col-md-8">
+                        <label for="validationCustom03" class="form-label">Amount in algos</label>
+                        <input id="transactionAmount" type="text" class="form-control" id="validationCustom03" required />
+                        <div class="invalid-feedback">
+                            Please provide a valid amount (above 0.1 algos).
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2">
+                        <p><strong>From</strong></p>
+                    </div>
+                    <div class="col-md-8">
+                        <label for="validationCustom03" class="form-label">Request from</label>
+                        <input placeholder="Email address" id="requestFromEmail" type="text" class="form-control" id="validationCustom03" required />
+                        <div class="invalid-feedback">
+                            Please provide a valid email address.
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2">
+                        <p><strong>To</strong></p>
+                    </div>
+                    <div class="col-md-8">
+                        <label for="validationCustom03" class="form-label">Fulfill request to</label>
+                        <input placeholder="Email or Algorand Address" id="requestToEmailOrAlgoAddress" type="text" class="form-control" id="validationCustom03" required />
+                        <div class="invalid-feedback">
+                            Please provide a valid algorand address or email address.
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2">
+                        <p><strong>Note</strong></p>
+                    </div>
+                    <div class="col-md-8">
+                        <label for="requestNote" class="form-label"></label>
+                        <textarea class="form-control" id="requestNote" placeholder="What's the request for?" required></textarea>
+                        <div class="invalid-feedback">
+                            Please add a note to the request.
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-12">
+                        <button id="submitTransaction" class="btn btn-success" type="submit">Submit request</button>
+                    </div>
+                </form>
+            </div>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <p id="loadingStatement"></p>
+                    <strong><p id="successStatement" style="color: green;"></p></strong>
+                    <strong><p id="errorStatement" style="color: red;"></p></strong>
+                    <div id="loadingGif" style="width: 200px; height: auto;" class="container flex-row justify-content-center"><img src="ajax-loader.gif" alt="loading gif" /></div>
+                    <div id="errorButton">
+                        <a href="https://sendalgo.com/requesttransaction.html">
+                            <button class="button btn btn-success">Try New Request Transaction</button>
+                        </a>
+                    </div>
+                    <div id="newTransactionButtons">
+                        <a href="https://sendalgo.com">
+                            <button style="margin-bottom: 20px;" class="button btn btn-success">Home</button>
+                        </a>
+                        <a href="https://sendalgo.com/paymenttransaction.html">
+                            <button style="margin-bottom: 20px;" class="button btn btn-success">New Payment</button>
+                        </a>
+                        <a href="https://sendalgo.com/requesttransaction.html">
+                            <button class="button btn btn-success">New Request</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-  <!-- Modal content -->
-  <div class="modal-content">
-	<p> Save your algorand address and passphrase somewhere safe as you will need these for each transaction you want to make</p>
-    <h4>Algorand Address:</h4>
-    <p style="overflow:scroll;" id="walletId"></p>
-    <br>
-    <br>
-    <h4>Passphrase:</h4>
-    <p style="word-wrap:break-word; display:inline-block;" id="passphrase"></p>
-  </div>
-  </div>
-	
-  <!-- The Modal -->
-<div id="fundWalletModal" class="modal">
-  <!-- Modal content -->
-  <div class="modal-content">
-	<p> Open this link in a new tab and enter your Algorand Address as the 'Target Address': </p><a href="https://bank.testnet.algorand.network/" target="_blank">testnet faucet</a>
-  </div>
-  </div>
-	
-  </div>
-</div>
-  <br><br><br> 
-<script src="script.js"></script>
-</body>
+            <!-- The Modal -->
+            <div id="plusButtonModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <button id="createWalletButton" class="button btn btn-success">Create Wallet</button>
+                    <br />
+                    <br />
+                    <br />
+                    <button id="fundWalletButton" class="button btn btn-success">Fund Wallet</button>
+                </div>
+            </div>
+            <!-- The Modal -->
+            <div id="createWalletModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <p>Save your algorand address and passphrase somewhere safe as you will need these for each transaction you want to make</p>
+                    <h4>Algorand Address:</h4>
+                    <p style="overflow: scroll;" id="walletId"></p>
+                    <br />
+                    <br />
+                    <h4>Passphrase:</h4>
+                    <p style="word-wrap: break-word; display: inline-block;" id="passphrase"></p>
+                </div>
+            </div>
+
+            <!-- The Modal -->
+            <div id="fundWalletModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <p>Open this link in a new tab and enter your Algorand Address as the 'Target Address':</p>
+                    <a href="https://bank.testnet.algorand.network/" target="_blank">testnet faucet</a>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <script src="script.js"></script>
+    </body>
 </html>
