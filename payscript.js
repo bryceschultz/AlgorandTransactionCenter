@@ -57,7 +57,7 @@ window.onload = function(){
 	$('#loadingStatement').text('This transaction was not able to be confirmed by the Algorand network. Please double check your inputs and try again.');
 	}
   });
-  }
+});
 
   const baseServer = 'https://testnet-algorand.api.purestake.io/ps2'
   const port = '';
