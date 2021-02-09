@@ -43,33 +43,34 @@ window.onload = function () {
     // Get the main modal
     var modal = document.getElementById("myModal");
 
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function () {
-        "use strict";
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll(".needs-validation");
+  'use strict'
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
 
-        // Loop over them and prevent submission
-        Array.prototype.slice.call(forms).forEach(function (form) {
-            form.addEventListener(
-                "submit",
-                function (event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    } else {
-                        modal.style.display = "block";
-                        event.preventDefault();
-                        var requestToEmailOrAlgoAddress = document.getElementById("requestToEmailOrAlgoAddress").value;
-                        var requestFromEmail = document.getElementById("requestFromEmail").value;
-                        var transactionAmount = document.getElementById("transactionAmount").value;
-                        var requestNote = document.getElementById("requestNote").value;
-                        var transactionResult = sendRequest(requestToEmailOrAlgoAddress, requestFromEmail, transactionAmount, requestNote);
-                    }
-                    form.classList.add("was-validated");
-                },
-                false
-            );
-        });
-    })();
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        } else {
+		 modal.style.display = "block";
+		  event.preventDefault()
+		    var requestToEmailOrAlgoAddress = document.getElementById("requestToEmailOrAlgoAddress").value;
+            console.log(requestToEmailOrAlgoAddress);
+            var requestFromEmail = document.getElementById("requestFromEmail").value;
+            console.log(requestFromEmail);
+            var transactionAmount = document.getElementById("transactionAmount").value;
+            console.log(transactionAmount);
+            var requestNote = document.getElementById("requestNote").value;
+            console.log(requestNote);
+            var transactionResult = sendRequest(requestToEmailOrAlgoAddress, requestFromEmail, transactionAmount, requestNote);
+        }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
 };
