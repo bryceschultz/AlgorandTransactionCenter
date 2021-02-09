@@ -1,81 +1,79 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9C988ELFKC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9C988ELFKC"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
 
-  gtag('config', 'G-9C988ELFKC');
-</script>
-<style>
-body {
-  font-family: Arial;
-  color: white;
-    height: 100%;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  color: black;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 16px;
-}
+            gtag("config", "G-9C988ELFKC");
+        </script>
+        <style>
+            body {
+                font-family: Arial;
+                color: white;
+                height: 100%;
+                background-position: center;
+                background-size: cover;
+                position: relative;
+                color: black;
+                font-family: "Courier New", Courier, monospace;
+                font-size: 16px;
+            }
 
-a {
-  color: black;
-}
+            a {
+                color: black;
+            }
 
-.split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
+            .split {
+                height: 100%;
+                width: 50%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                overflow-x: hidden;
+                padding-top: 20px;
+            }
 
-.left {
-  left: 0;
-  border-right: .3px solid black;
-}
+            .left {
+                left: 0;
+                border-right: 0.3px solid black;
+            }
 
-.right {
-  right: 0;
-  border-left: .3px solid black;
-}
+            .right {
+                right: 0;
+                border-left: 0.3px solid black;
+            }
 
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+            .centered {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="https://sendalgo.com/paymenttransaction.html">
+            <div class="split left">
+                <div class="centered">
+                    <h2>Pay</h2>
+                </div>
+            </div>
+        </a>
 
-</style>
-</head>
-<body>
-  
-
-<a href="https://sendalgo.com/paymenttransaction.html">
-<div class="split left">
-  <div class="centered">
-    <h2>Pay</h2>
-  </div>
-</div>
-</a>
-
-<a href="https://sendalgo.com/requesttransaction.html">
-<div class="split right">
-  <div class="centered">
-    <h2>Request</h2>
-  </div>
-</div>
-</a>
-     
-</body>
+        <a href="https://sendalgo.com/requesttransaction.html">
+            <div class="split right">
+                <div class="centered">
+                    <h2>Request</h2>
+                </div>
+            </div>
+        </a>
+    </body>
 </html>
