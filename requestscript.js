@@ -2,7 +2,7 @@ window.onload = function () {
     function sendRequest(requestToEmailOrAlgoAddress, requestFromEmail, transactionAmount, requestNote) {
         document.getElementById("newTransactionButtons").style.display = "none";
         document.getElementById("errorButton").style.display = "none";
-        $("#loadingStatement").text("Your transaction has been sent to the Algorand network and will be confirmed shortly. Please standby for confirmation.");
+        $("#loadingStatement").text("Your request transaction has been submitted and will be confirmed shortly. Please standby for confirmation.");
         document.getElementById("loadingGif").style.display = "block";
         modal.style.display = "block";
         var postString =
