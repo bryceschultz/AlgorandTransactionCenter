@@ -6,7 +6,8 @@ window.onload = function () {
         document.getElementById("loadingGif").style.display = "block";
         modal.style.display = "block";
         var postString =
-            "https://algorandtransactioncenter.herokuapp.com/postRequestTransaction?transactionAmountInAlgos=" +
+            "https://algorandtransactioncenter.herokuapp.com/postRequestTransaction?"+
+            "transactionAmountInAlgos=" +
             transactionAmount +
             "&requestToEmailOrAlgoAddress=" +
             requestToEmailOrAlgoAddress +
