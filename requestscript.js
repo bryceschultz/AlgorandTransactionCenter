@@ -32,10 +32,10 @@ window.onload = function () {
                 $("#successStatement").text("Request Successful.  Your request has been sent to: " + requestFromEmail);
                 document.getElementById("loadingGif").style.display = "none";
                 document.getElementById("loadingStatement").style.display = "none";
-                document.getElementById("requestToEmailOrAlgoAddress").attribute('readonly','readonly');
-                document.getElementById("requestFromEmail").attribute('readonly','readonly');
-                document.getElementById("transactionAmount").attribute('readonly','readonly');
-                document.getElementById("requestNote").attribute('readonly','readonly');
+                document.getElementById("requestToEmailOrAlgoAddress").attr('readonly','readonly');
+                document.getElementById("requestFromEmail").attr('readonly','readonly');
+                document.getElementById("transactionAmount").attr('readonly','readonly');
+                document.getElementById("requestNote").attr('readonly','readonly');
                 document.getElementById("newTransactionButtons").style.display = "block";
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
