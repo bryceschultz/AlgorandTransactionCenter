@@ -20,7 +20,8 @@ window.onload = function () {
         modal.style.display = "block";
         $("#loadingStatement").text("Your transaction has been sent to the Algorand network and will be confirmed shortly. Please standby for confirmation.");
         var postString =
-            "https://algorandtransactioncenter.herokuapp.com/postTransactionToNewAccount?transactionAmountInAlgos=" +
+            "https://algorandtransactioncenter.herokuapp.com/postPaymentTransaction?"+
+            "transactionAmountInAlgos=" +
             transactionAmount +
             "&originWalletPassphrase=" +
             originWalletPassphrase +
