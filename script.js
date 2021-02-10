@@ -27,11 +27,13 @@ plusbtn.onclick = function() {
 	    } else {
 		$(this).css("transform","" );
 	    }
-	if (plusbtnmodal.style.display == "block") {
-	plusbtnmodal.style.display = "none"; 
-	} else {
-	plusbtnmodal.style.display = "block";	
-	}
+	if (plusbtnmodal.style.display == "block" || createwalletmodal.style.display == "block" || fundwalletmodal.style.display == "block") {
+            plusbtnmodal.style.display = "none";
+            createwalletmodal.style.display = "none";
+            fundwalletmodal.style.display = "none";
+        } else {
+            plusbtnmodal.style.display = "block";
+        }
 }
 
   // Get the modal
