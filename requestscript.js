@@ -32,6 +32,10 @@ window.onload = function () {
                 $("#successStatement").text("Request Successful.  Your request has been sent to: " + requestFromEmail);
                 document.getElementById("loadingGif").style.display = "none";
                 document.getElementById("loadingStatement").style.display = "none";
+                document.getElementById("requestToEmailOrAlgoAddress").attribute('readonly','readonly');
+                document.getElementById("requestFromEmail").attribute('readonly','readonly');
+                document.getElementById("transactionAmount").attribute('readonly','readonly');
+                document.getElementById("requestNote").attribute('readonly','readonly');
                 document.getElementById("newTransactionButtons").style.display = "block";
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
@@ -64,13 +68,9 @@ window.onload = function () {
                         modal.style.display = "block";
                         event.preventDefault();
                         var requestToEmailOrAlgoAddress = document.getElementById("requestToEmailOrAlgoAddress").value;
-                        console.log(requestToEmailOrAlgoAddress);
                         var requestFromEmail = document.getElementById("requestFromEmail").value;
-                        console.log(requestFromEmail);
                         var transactionAmount = document.getElementById("transactionAmount").value;
-                        console.log(transactionAmount);
                         var requestNote = document.getElementById("requestNote").value;
-                        console.log(requestNote);
                         var transactionResult = sendRequest(requestToEmailOrAlgoAddress, requestFromEmail, transactionAmount, requestNote);
                     }
 
