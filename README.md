@@ -10,10 +10,15 @@ The application can also be forked and built upon by another user wishing to dev
 $ git clone https://github.com/bryceschultz/AlgorandTransactionCenter
 ````
 
+## Architecture
+<img src="SendAlgoArchitecture.png">
+
 ## Functionalities
-The 3 main functionalities of the Algorand Transaction Center are as follows:
+The 5 main functionalities of the Algorand Transaction Center are as follows:
 1. Allow a user to send a payment from their Algorand address to another users Algorand address
 2. Allow a user to send a payment from their Algorand address to another users email (an Algorand address is created at the time of transaction and sent to the receiving user).
 3. Allow a user to send a request for payment to another user via email.
+4. Allow a user to create a wallet with a web UI
+5. Guide a user through funding their wallet using a web UI
 
 ## Functionality 1. pay an exisitng Algorand address
