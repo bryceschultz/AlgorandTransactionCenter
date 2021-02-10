@@ -13,7 +13,7 @@ window.onload = function () {
     //Calling function on page load
     window.onload = grabLinkParams;
 
-    function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount) {
+    function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletOrEmail, transactionAmount) {
         document.getElementById("transactionDetails").style.display = "none";
         document.getElementById("errorButton").style.display = "none";
         document.getElementById("loadingGif").style.display = "block";
@@ -26,8 +26,8 @@ window.onload = function () {
             originWalletPassphrase +
             "&originWalletAddress=" +
             originWalletAddress +
-            "&destinationWalletEmail=" +
-            destinationWalletEmail;
+            "&destinationWalletOrEmail=" +
+            destinationWalletOrEmail;
         var form = new FormData();
         var settings = {
             url: postString,
@@ -108,14 +108,10 @@ window.onload = function () {
                     } else {
                         event.preventDefault();
                         var originWalletAddress = document.getElementById("originWalletAddress").value;
-                        console.log(originWalletAddress);
                         var originWalletPassphrase = document.getElementById("originWalletPassphrase").value;
-                        console.log(originWalletPassphrase);
-                        var destinationWalletEmail = document.getElementById("destinationWalletEmail").value;
-                        console.log(destinationWalletEmail);
+                        var destinationWalletOrEmail = document.getElementById("destinationWalletOrEmail").value;
                         var transactionAmount = document.getElementById("transactionAmount").value;
-                        console.log(transactionAmount);
-                        var transactionResult = sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletEmail, transactionAmount);
+                        var transactionResult = sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletOrEmail, transactionAmount);
                     }
 
                     form.classList.add("was-validated");
