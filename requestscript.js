@@ -33,7 +33,6 @@ window.onload = function () {
                 $("#successStatement").text("Request Successful.  Your request has been sent to: " + requestFromEmail);
                 document.getElementById("loadingGif").style.display = "none";
                 document.getElementById("loadingStatement").style.display = "none";
-                document.getElementById("requestNote").attr('readonly','readonly');
                 document.getElementById("newTransactionButtons").style.display = "block";
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
