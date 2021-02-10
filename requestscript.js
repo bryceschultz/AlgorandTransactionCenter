@@ -2,6 +2,7 @@ window.onload = function () {
     function sendRequest(requestToEmailOrAlgoAddress, requestFromEmail, transactionAmount, requestNote) {
         document.getElementById("newTransactionButtons").style.display = "none";
         document.getElementById("errorButton").style.display = "none";
+        document.getElementById('loadingStatement').style.display = "block";
         document.getElementById("loadingGif").style.display = "block";
         modal.style.display = "block";
         var postString =
