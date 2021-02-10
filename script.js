@@ -49,8 +49,7 @@ plusbtn.onclick = function () {
 };
 
 window.onclick = function (event) {
-    if (event.target == modal || event.target == plusbtnmodal || event.target == createwalletmodal || event.target == fundwalletmodal) {
-        modal.style.display = "none";
+    if (event.target == plusbtnmodal || event.target == createwalletmodal || event.target == fundwalletmodal) {
         plusbtnmodal.style.display = "none";
         createwalletmodal.style.display = "none";
         fundwalletmodal.style.display = "none";
