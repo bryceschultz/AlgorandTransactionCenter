@@ -38,24 +38,28 @@ The 5 main functionalities of the Algorand Transaction Center are as follows:
 1. From the home page (https://sendalgo.com) click anywhere
 2. Now click on the 'Pay' side of the page
 3. Fill out the payment transaction form:
-  a. Enter your algorand address in the first box.
-  b. Enter your algorand passphrase in the second box.
-  c. Enter another users email address you wish to send the algos to in the third box.
-  d. Enter the amount of algos you want to send in the fourth box.
-  <img src="documentation-images/paymenttransactiontoemail.png">
+  +a. Enter your algorand address in the first box.
+  +b. Enter your algorand passphrase in the second box.
+  +c. Enter another users email address you wish to send the algos to in the third box.
+  +d. Enter the amount of algos you want to send in the fourth box.
+  +<img src="documentation-images/paymenttransactiontoemail.png">
 4. Hit enter
-  a. If your transaction is successful you will see the below message:
-  <img src="documentation-images/paymentsuccessful.png">
+  +a. If your transaction is successful you will see the below message:
+  +<img src="documentation-images/paymentsuccessful.png">
   
   ## Functionality 3. request a user to pay you
 1. From the home page (https://sendalgo.com) click anywhere
 2. Now click on the 'Request' side of the page
 3. Fill out the request transaction form:
-  a. Enter your algorand address in the first box.
-  b. Enter your algorand passphrase in the second box.
-  c. Enter another users email address you wish to send the algos to in the third box.
-  d. Enter the amount of algos you want to send in the fourth box.
-  <img src="documentation-images/paymenttransactiontoemail.png">
+  +a. Enter your algorand address in the first box.
+  +b. Enter your algorand passphrase in the second box.
+  +c. Enter another users email address you wish to send the algos to in the third box.
+  +d. Enter the amount of algos you want to send in the fourth box.
+  +<img src="documentation-images/paymenttransactiontoemail.png">
 4. Hit enter
-  a. If your transaction is successful you will see the below message:
-  <img src="documentation-images/paymentsuccessful.png">
+  +a. If your transaction is successful you will see the below message:
+  +<img src="documentation-images/paymentsuccessful.png">
+  
+  ## Functionality 3. creating a wallet
+  
+  ## Functionality 3. funding a wallet
