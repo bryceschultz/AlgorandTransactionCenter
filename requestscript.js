@@ -1,4 +1,5 @@
 window.onload = function () {
+    //Defining the function that will send a post request to the heroku API
     function sendRequest(requestToEmailOrAlgoAddress, requestFromEmail, transactionAmount, requestNote) {
         document.getElementById("newTransactionButtons").style.display = "none";
         document.getElementById("errorButton").style.display = "none";
@@ -27,6 +28,7 @@ window.onload = function () {
         };
 
         $.ajax(settings)
+            //defining done function which will execute if the post request is successful
             .done(function (response) {
                 console.log(response);
                 var respObj = JSON.parse(response);
@@ -35,6 +37,7 @@ window.onload = function () {
                 document.getElementById("loadingStatement").style.display = "none";
                 document.getElementById("newTransactionButtons").style.display = "block";
             })
+            //defining fail function which will execute if the post request is not successful
             .fail(function (jqXHR, textStatus, errorThrown) {
                 console.log(errorThrown);
                 document.getElementById("loadingGif").style.display = "none";
@@ -47,7 +50,7 @@ window.onload = function () {
     // Get the main modal
     var modal = document.getElementById("myModal");
 
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    // javascript function that will prevent user from submitting request if not all fields are filled out
     (function () {
         "use strict";
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
