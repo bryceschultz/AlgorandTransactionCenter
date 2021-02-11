@@ -70,7 +70,7 @@ The 5 main functionalities of the Algorand Transaction Center are as follows:
 4. Hit enter
    a. If your transaction is successful you will see the below screen:</pre>
    <img src="documentation-images/requestsuccessful.png">
-5. The user whose email you requested the payment frmo will receive
+5. The user whose email you requested the payment from will receive
    an email like the one shown below that will provide them with a link that 
    will autopopulate the payment screen with who the transaction is being sent
    to and how much the payment is for.</pre>
