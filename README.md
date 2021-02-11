@@ -65,11 +65,12 @@ The 5 main functionalities of the Algorand Transaction Center are as follows:
    b. Enter the email you're requesting the algos from in the second box.
    c. Enter your email or algorand address that you want the algos to be sent to in the third box.
    d. Enter what the request is for in the fourth box.</pre>
-   <img src="documentation-images/requesttransactiontoemail.png">
+   <img src="documentation-images/requesttransaction.png">
    <pre>
 4. Hit enter
    a. If your transaction is successful you will see the below screen:</pre>
    <img src="documentation-images/requestsuccessful.png">
+   <pre>
 5. The user whose email you requested the payment from will receive
    an email like the one shown below that will provide them with a link that 
    will autopopulate the payment screen with who the transaction is being sent
