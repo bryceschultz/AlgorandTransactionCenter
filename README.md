@@ -47,11 +47,11 @@ The 5 main functionalities of the Algorand Transaction Center are as follows:
    d. Enter the amount of algos you want to send in the fourth box.</pre>
    <img src="documentation-images/paymenttransactiontoemail.png">
    <pre>
-2. Hit enter
-   2. If your transaction is successful you will see the below message:</pre>
+4. Hit enter
+   a. If your transaction is successful you will see the below message:</pre>
    <img src="documentation-images/paymentsuccessful.png">
   <pre>
-3. The user whose email you entered (the transaction recipient) will receive
+5. The user whose email you entered (the transaction recipient) will receive
    an email like the one shown below that will provide them with the ID and 
    passphrase to access the algos.</pre>
    <ing src="documentation-images/paymenttoemailrecipient.png">
@@ -70,7 +70,7 @@ The 5 main functionalities of the Algorand Transaction Center are as follows:
 4. Hit enter
    a. If your transaction is successful you will see the below screen:</pre>
    <img src="documentation-images/requestsuccessful.png">
- 5. The user whose email you requested the payment frmo will receive
+5. The user whose email you requested the payment frmo will receive
    an email like the one shown below that will provide them with a link that 
    will autopopulate the payment screen with who the transaction is being sent
    to and how much the payment is for.</pre>
