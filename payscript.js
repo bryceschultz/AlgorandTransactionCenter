@@ -4,7 +4,7 @@ window.onload = function () {
         var url = new URL(window.location.href);
         var fulfillRequestTo = url.searchParams.get("fulfillRequestTo");
         console.log(fulfillRequestTo);
-        $("#destinationWalletEmail").val(fulfillRequestTo);
+        $("#destinationWalletOrEmail").val(fulfillRequestTo);
         var fulfillRequestAmount = url.searchParams.get("fulfillRequestAmount");
         $("#transactionAmount").val(fulfillRequestAmount);
         console.log(fulfillRequestAmount);
