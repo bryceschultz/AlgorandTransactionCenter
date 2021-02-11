@@ -54,7 +54,13 @@ The 5 main functionalities of the Algorand Transaction Center are as follows:
    2. If your transaction is successful you will see the below message:
    </pre>
    <img src="documentation-images/paymentsuccessful.png">
-  
+  <pre>
+3. The user whose email you entered (the transaction recipient) will receive
+   an email like the one shown below that will provide them with the ID and 
+   passphrase to access the algos.
+   </pre>
+   <ing src="documentation-images/paymenttransactionrecipient.png"
+   
   ## Functionality 3. request a user to pay you
   <pre>
 1. From the home page (https://sendalgo.com) click anywhere
