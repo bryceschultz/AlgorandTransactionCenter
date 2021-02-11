@@ -54,7 +54,7 @@ The 5 main functionalities of the Algorand Transaction Center are as follows:
 5. The user whose email you entered (the transaction recipient) will receive
    an email like the one shown below that will provide them with the ID and 
    passphrase to access the algos.</pre>
-   <ing src="documentation-images/paymenttoemailrecipient.png">
+   <img src="documentation-images/paymenttoemailrecipient.png">
    
   ## Functionality 3. request a user to pay you
   <pre>
