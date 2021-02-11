@@ -67,6 +67,7 @@ window.onload = function () {
                     } else {
                         modal.style.display = "block";
                         event.preventDefault();
+                        //grabbing all the inputs from the form and then calling the sendRequest function which is defined above
                         var requestToEmailOrAlgoAddress = document.getElementById("requestToEmailOrAlgoAddress").value;
                         var requestFromEmail = document.getElementById("requestFromEmail").value;
                         var transactionAmount = document.getElementById("transactionAmount").value;
