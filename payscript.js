@@ -11,7 +11,7 @@ window.onload = function () {
     }
 
     //Calling function on page load
-    window.onload = grabLinkParams;
+    grabLinkParams;
 
     function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletOrEmail, transactionAmount) {
         document.getElementById("transactionDetails").style.display = "none";
