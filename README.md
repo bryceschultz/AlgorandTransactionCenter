@@ -25,9 +25,9 @@ The 5 main functionalities of the Algorand Transaction Center are as follows:
 1. From the home page (https://sendalgo.com) click anywhere
 2. Now click on the 'Pay' side of the page
 3. Fill out the payment transaction form:
-  a. Enter your algorand address in the first box.
-  b. Enter your algorand passphrase in the second box.
-  c. Enter another users algorand address you wish to send the algos to in the third box.
+    -a. Enter your algorand address in the first box.
+    -b. Enter your algorand passphrase in the second box.
+    -c. Enter another users algorand address you wish to send the algos to in the third box.
   d. Enter the amount of algos you want to send in the fourth box.
   <img src="documentation-images/paymenttransaction.png">
 4. Hit enter
