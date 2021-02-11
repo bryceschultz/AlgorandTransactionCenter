@@ -1,18 +1,17 @@
 window.onload = function () {
-    //Get any variables passed along with URL
+    //Get both variables that are passed along with URL
     function grabLinkParams() {
         var url = new URL(window.location.href);
         var fulfillRequestTo = url.searchParams.get("fulfillRequestTo");
-        console.log(fulfillRequestTo);
         $("#destinationWalletOrEmail").val(fulfillRequestTo);
         var fulfillRequestAmount = url.searchParams.get("fulfillRequestAmount");
         $("#transactionAmount").val(fulfillRequestAmount);
-        console.log(fulfillRequestAmount);
     }
 
-    //Calling function on page load
+    //Calling function on page load to grab variables from link
     grabLinkParams();
 
+    //Defining the function that will send a post request to the heroku API
     function sendTransaction(originWalletAddress, originWalletPassphrase, destinationWalletOrEmail, transactionAmount) {
         document.getElementById("transactionDetails").style.display = "none";
         document.getElementById("errorButton").style.display = "none";
@@ -41,6 +40,7 @@ window.onload = function () {
         };
 
         $.ajax(settings)
+             //defining done function which will execute if the post request is successful
             .done(function (response) {
                 console.log(response);
                 var respObj = JSON.parse(response);
@@ -62,6 +62,7 @@ window.onload = function () {
                 document.getElementById("transactionDetails").style.display = "block";
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
+            //defining fail function which will execute if the post request is not successful
                 console.log(errorThrown);
                 document.getElementById("loadingGif").style.display = "none";
                 document.getElementById("loadingStatement").style.display = "none";
@@ -70,29 +71,10 @@ window.onload = function () {
             });
     }
 
-    const baseServer = "https://testnet-algorand.api.purestake.io/ps2";
-    const port = "";
-    const token = {
-        "X-API-Key": "cfoNpaCzsF9xJRTOO39rF78aJRbK4fqj4W8LNv6k",
-    };
-
-    const algodClient = new algosdk.Algodv2(token, baseServer, port);
-    let needToMakeNewDestinationWallet = false;
-    let needToMakeNewOriginWallet = false;
-
-    function makeNewOriginWallet() {
-        var account = algosdk.generateAccount();
-        var passphrase = algosdk.secretKeyToMnemonic(account.sk);
-        document.getElementById("walletId").innerHTML = account.addr;
-        document.getElementById("passphrase").innerHTML = passphrase;
-        console.log("My address: " + account.addr);
-        console.log("My passphrase: " + passphrase);
-    }
-
     // Get the main modal
     var modal = document.getElementById("myModal");
 
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    // javascript function that will prevent user from submitting payment if not all fields are filled out
     (function () {
         "use strict";
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -108,6 +90,7 @@ window.onload = function () {
                         event.stopPropagation();
                     } else {
                         event.preventDefault();
+                        //grabbing all the inputs from the form and then calling the sendTransaction function which is defined above
                         var originWalletAddress = document.getElementById("originWalletAddress").value;
                         var originWalletPassphrase = document.getElementById("originWalletPassphrase").value;
                         var destinationWalletOrEmail = document.getElementById("destinationWalletOrEmail").value;
