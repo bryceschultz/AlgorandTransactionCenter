@@ -80,7 +80,7 @@ The 5 main functionalities of the Algorand Transaction Center are as follows:
   ## Functionality 4. creating a wallet
   <pre>
 1. From either the send page (https://sendalgo.com/paymenttransaction.html)
- or the receive page (https://sendalgo.com/requesttransaction.hmtl)
+ or the receive page (https://sendalgo.com/requesttransaction.html)
  click the big green plus button in the upper left corner and the below menu will pop up.</pre>
  <img src="documentation-images/plusbuttonmodal.png">
  <pre>
